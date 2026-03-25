@@ -3,6 +3,7 @@ import SwiftUI
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
     @State private var showingBreathing = false
+    @State private var errorMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -42,6 +43,14 @@ struct TodayView: View {
             }
             .sheet(isPresented: $showingBreathing) {
                 BreathingSessionView()
+            }
+            .alert("Something went wrong", isPresented: Binding(
+                get: { viewModel.showError },
+                set: { viewModel.showError = $0 }
+            )) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(viewModel.errorMessage ?? "Please try again.")
             }
             .onAppear {
                 viewModel.loadTodaysData()
@@ -297,7 +306,7 @@ struct MissTrackerView: View {
 
     private var recentMisses: [Date] {
         let calendar = Calendar.current
-        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date()) ?? Date()
         return missedDays.filter { $0 >= weekAgo }.sorted(by: >)
     }
 

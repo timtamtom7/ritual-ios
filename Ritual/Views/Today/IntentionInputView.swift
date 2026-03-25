@@ -1,5 +1,6 @@
 import SwiftUI
 import Speech
+import AVFoundation
 
 struct IntentionInputView: View {
     @Binding var text: String
@@ -8,6 +9,8 @@ struct IntentionInputView: View {
     @State private var isRecording: Bool = false
     @State private var characterCount: Int = 0
     @State private var showVoiceUnavailable: Bool = false
+    @State private var showPermissionAlert: Bool = false
+    @State private var permissionDeniedMessage: String = ""
 
     private let maxCharacters = 140
     private let warningThreshold = 120
@@ -45,13 +48,23 @@ struct IntentionInputView: View {
             }
 
             HStack {
-                Button(action: toggleVoiceInput) {
+                Button(action: handleMicTap) {
                     Image(systemName: isRecording ? "stop.circle.fill" : "mic.fill")
                         .font(.system(size: 22))
                         .foregroundColor(isRecording ? Theme.warning : Theme.goldMuted)
                 }
                 .opacity(showVoiceUnavailable ? 0 : 1)
                 .disabled(showVoiceUnavailable)
+                .alert("Voice Input Unavailable", isPresented: $showPermissionAlert) {
+                    Button("Open Settings") {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text(permissionDeniedMessage)
+                }
 
                 Spacer()
 
@@ -72,10 +85,22 @@ struct IntentionInputView: View {
         }
     }
 
+    private func handleMicTap() {
+        let status = SFSpeechRecognizer.authorizationStatus()
+        switch status {
+        case .authorized:
+            toggleVoiceInput()
+        case .notDetermined:
+            requestSpeechPermission()
+        case .denied, .restricted:
+            showPermissionDeniedAlert(for: status)
+        @unknown default:
+            showVoiceUnavailable = true
+        }
+    }
+
     private func toggleVoiceInput() {
         isRecording.toggle()
-        // Voice input would be implemented here with SFSpeechRecognizer
-        // For now, just toggle state
         if isRecording {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 isRecording = false
@@ -83,7 +108,45 @@ struct IntentionInputView: View {
         }
     }
 
+    private func requestSpeechPermission() {
+        SFSpeechRecognizer.requestAuthorization { [self] status in
+            DispatchQueue.main.async {
+                switch status {
+                case .authorized:
+                    toggleVoiceInput()
+                case .denied, .restricted:
+                    showPermissionDeniedAlert(for: status)
+                case .notDetermined:
+                    showVoiceUnavailable = true
+                @unknown default:
+                    showVoiceUnavailable = true
+                }
+            }
+        }
+    }
+
+    private func showPermissionDeniedAlert(for status: SFSpeechRecognizerAuthorizationStatus) {
+        switch status {
+        case .denied:
+            permissionDeniedMessage = "Voice input requires microphone and speech recognition access. Please enable them in Settings."
+        case .restricted:
+            permissionDeniedMessage = "Voice input is restricted on this device."
+        default:
+            permissionDeniedMessage = "Voice input is not available."
+        }
+        showPermissionAlert = true
+    }
+
     private func checkVoiceAvailability() {
-        showVoiceUnavailable = false
+        let recognizer = SFSpeechRecognizer()
+        let micPermission = AVAudioApplication.shared.recordPermission
+
+        if micPermission == .denied {
+            showVoiceUnavailable = true
+        } else if recognizer?.isAvailable == false {
+            showVoiceUnavailable = true
+        } else {
+            showVoiceUnavailable = false
+        }
     }
 }

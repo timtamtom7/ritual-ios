@@ -7,7 +7,10 @@ struct TimelineEntry: Identifiable {
     let checkIn: CheckIn?
 
     var date: Date { intention.createdAt }
-    var hasReflection: Bool { checkIn?.reflection != nil && !checkIn!.reflection!.isEmpty }
+    var hasReflection: Bool {
+        guard let reflection = checkIn?.reflection else { return false }
+        return !reflection.isEmpty
+    }
 }
 
 struct WeekGroup: Identifiable {
@@ -18,7 +21,7 @@ struct WeekGroup: Identifiable {
     var weekLabel: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d"
-        let endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate)!
+        let endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) ?? startDate
         return "\(formatter.string(from: startDate)) - \(formatter.string(from: endDate))"
     }
 }

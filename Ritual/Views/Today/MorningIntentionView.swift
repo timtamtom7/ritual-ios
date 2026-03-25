@@ -7,6 +7,7 @@ struct MorningIntentionView: View {
     @State private var currentStep: Int = 0
     @State private var intentionText: String = ""
     @State private var breathingPhase: Int = 0
+    @State private var breathingTask: Task<Void, Never>?
 
     private let breathingCount = 3
     private let breathDuration: Double = 4.0
@@ -55,6 +56,9 @@ struct MorningIntentionView: View {
         .onAppear {
             startBreathingGuide()
         }
+        .onDisappear {
+            breathingTask?.cancel()
+        }
     }
 
     private var intentionInputView: some View {
@@ -92,21 +96,17 @@ struct MorningIntentionView: View {
     }
 
     private func startBreathingGuide() {
-        Timer.scheduledTimer(withTimeInterval: breathDuration, repeats: true) { timer in
-            if currentStep != 0 {
-                timer.invalidate()
-                return
-            }
-
-            withAnimation(.easeInOut(duration: 0.3)) {
-                breathingPhase += 1
-            }
-
-            if breathingPhase >= breathingCount * 4 {
-                timer.invalidate()
-                withAnimation {
-                    currentStep = 1
+        breathingTask = Task { @MainActor in
+            for i in 0..<(self.breathingCount * 4) {
+                try? await Task.sleep(nanoseconds: UInt64(self.breathDuration * 1_000_000_000))
+                if Task.isCancelled || self.currentStep != 0 { break }
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.breathingPhase = i + 1
                 }
+            }
+            if self.currentStep != 0 { return }
+            withAnimation {
+                self.currentStep = 1
             }
         }
     }

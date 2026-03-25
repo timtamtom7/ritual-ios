@@ -55,7 +55,7 @@ final class InsightsViewModel: ObservableObject {
         totalCheckIns = allCheckIns.count
 
         // Need at least 2 weeks of data (14 days)
-        let minDate = Calendar.current.date(byAdding: .day, value: -14, to: Date())!
+        let minDate = Calendar.current.date(byAdding: .day, value: -14, to: Date()) ?? Date()
         let recentIntentions = allIntentions.filter { $0.createdAt >= minDate }
         hasEnoughData = recentIntentions.count >= 3
 

@@ -40,7 +40,7 @@ final class DatabaseService {
 
     private func setupDatabase() {
         do {
-            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
             db = try Connection("\(path)/ritual.sqlite3")
             try createTables()
         } catch {
@@ -359,7 +359,7 @@ final class DatabaseService {
 
     func generateWeeklyReport() -> String? {
         let calendar = Calendar.current
-        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date()) ?? Date()
         let intentions = getIntentions().filter { $0.createdAt >= weekAgo }
         guard !intentions.isEmpty else { return nil }
 
@@ -394,7 +394,6 @@ final class DatabaseService {
         }
 
         // Category theme
-        let grouped = getIntentionsGroupedByCategory()
         let recentGrouped = Dictionary(grouping: intentions) { $0.category ?? "Other" }
         if let dominant = recentGrouped.max(by: { $0.value.count < $1.value.count }) {
             lines.append("This week, \(dominant.key.lowercased()) intentions dominated your practice.")
@@ -407,7 +406,7 @@ final class DatabaseService {
 
     func getMonthlyTheme() -> String? {
         let calendar = Calendar.current
-        let monthAgo = calendar.date(byAdding: .day, value: -30, to: Date())!
+        let monthAgo = calendar.date(byAdding: .day, value: -30, to: Date()) ?? Date()
         let intentions = getIntentions().filter { $0.createdAt >= monthAgo }
         guard intentions.count >= 3 else { return nil }
 

@@ -12,6 +12,8 @@ final class TodayViewModel: ObservableObject {
     @Published var showBreathingSession: Bool = false
     @Published var streakData: StreakData = StreakData()
     @Published var streakAnniversary: String?
+    @Published var errorMessage: String?
+    @Published var showError: Bool = false
 
     private let database = DatabaseService.shared
 
@@ -59,7 +61,8 @@ final class TodayViewModel: ObservableObject {
             hasCompletedMorningIntention = true
             showMorningFlow = false
         } catch {
-            print("Error saving intention: \(error)")
+            errorMessage = "Couldn't save your intention. Please try again."
+            showError = true
         }
     }
 
@@ -75,7 +78,8 @@ final class TodayViewModel: ObservableObject {
             streakData = database.getStreakData()
             streakAnniversary = database.streakAnniversary()
         } catch {
-            print("Error saving check-in: \(error)")
+            errorMessage = "Couldn't save your check-in. Please try again."
+            showError = true
         }
     }
 
