@@ -35,13 +35,17 @@ struct CategoryInsight: Identifiable {
 @MainActor
 final class InsightsViewModel: ObservableObject {
     @Published var insights: [CategoryInsight] = []
+    @Published var narrativeInsights: [NarrativeInsight] = []
     @Published var hasEnoughData: Bool = false
     @Published var totalIntentions: Int = 0
     @Published var totalCheckIns: Int = 0
     @Published var weeklyReport: String?
     @Published var monthlyTheme: String?
+    @Published var sleepCorrelation: SleepCorrelation?
+    @Published var calendarConflict: CalendarConflictReport?
 
     private let database = DatabaseService.shared
+    private let narrativeService = NarrativeService.shared
 
     init() {
         calculateInsights()
@@ -63,11 +67,23 @@ final class InsightsViewModel: ObservableObject {
             insights = []
             weeklyReport = nil
             monthlyTheme = nil
+            narrativeInsights = []
+            sleepCorrelation = nil
+            calendarConflict = nil
             return
         }
 
         weeklyReport = database.generateWeeklyReport()
         monthlyTheme = database.getMonthlyTheme()
+
+        // R4: AI narrative insights
+        narrativeInsights = narrativeService.generateWeeklyNarrative()
+
+        // R4: Sleep → intention success correlation
+        sleepCorrelation = narrativeService.analyzeSleepCorrelation()
+
+        // R4: Calendar conflict detection
+        calendarConflict = narrativeService.checkCalendarConflicts()
 
         let grouped = database.getIntentionsGroupedByCategory()
         var categoryInsights: [CategoryInsight] = []

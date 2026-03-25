@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import EventKit
 
 @MainActor
 final class TodayViewModel: ObservableObject {
@@ -14,8 +15,11 @@ final class TodayViewModel: ObservableObject {
     @Published var streakAnniversary: String?
     @Published var errorMessage: String?
     @Published var showError: Bool = false
+    @Published var morningConflicts: [EKEvent] = []
+    @Published var calendarRequested: Bool = false
 
     private let database = DatabaseService.shared
+    private let calendarService = CalendarService.shared
 
     var isMorning: Bool {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -44,9 +48,30 @@ final class TodayViewModel: ObservableObject {
         // Show morning flow if it's morning and no intention set
         if isMorning && todaysIntention == nil {
             showMorningFlow = true
+            checkCalendarConflicts()
         } else if isEvening && todaysIntention != nil && todaysCheckIn == nil {
             // Show evening flow if it's evening, intention exists, but no check-in
             showEveningFlow = true
+        }
+    }
+
+    func checkCalendarConflicts() {
+        let conflicts = calendarService.conflictingEventsForToday()
+        morningConflicts = conflicts.filter { event in
+            guard let startHour = Calendar.current.dateComponents([.hour], from: event.startDate).hour else { return false }
+            return startHour < 14 // Morning/afternoon conflicts
+        }
+    }
+
+    func requestCalendarAccess() {
+        Task {
+            let granted = await calendarService.requestAccess()
+            await MainActor.run {
+                calendarRequested = true
+                if granted {
+                    checkCalendarConflicts()
+                }
+            }
         }
     }
 

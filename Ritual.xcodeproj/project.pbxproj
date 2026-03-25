@@ -17,6 +17,7 @@
 		1F68F2727FB5EACA3FF431DD /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE47B33374138A9FCE39CF49 /* CheckIn.swift */; };
 		23D4BE1CD4EB273309E6FC14 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDDD9B1F3A1CC355D2FC12 /* CheckInButton.swift */; };
 		298CD5037B5D559564FD81E8 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD009BDA2A808380697A11AF /* InsightsViewModel.swift */; };
+		4D3FF49F6CCE7A58BB534A43 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92762143237735688F7E396F /* CalendarService.swift */; };
 		508BE22403D7F32EC842E061 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4325EB720C92BD73B16FFD5 /* TodayViewModel.swift */; };
 		5512C02E088D48BBA21DC807 /* BreathingGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BF255CD4A94D011E7CE342 /* BreathingGuideView.swift */; };
 		63A152F0E5E0A3981CDB08F1 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 00A85505BC026527E907FC8F /* SQLite */; };
@@ -37,6 +38,7 @@
 		D4A5DF8AB5A849D47FF326A2 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */; };
 		E673F7CA695C720E433078D5 /* MorningIntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E7F79527DCDB80A8AB752 /* MorningIntentionView.swift */; };
 		E8EEBEA2534CDBDEC938D6D6 /* AmbientSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717EEE17976B489D61B655B /* AmbientSoundPlayer.swift */; };
+		EC63870FEBE6ED3B4EF7C62E /* NarrativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6EE066839C9830688CCFB /* NarrativeService.swift */; };
 		ED695AC0E199F2FF419B85AE /* IntentionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */; };
 		FF335B127E90CCAB01006627 /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C47942E3C05DEF6C70DC03 /* BreathingSession.swift */; };
 /* End PBXBuildFile section */
@@ -58,9 +60,11 @@
 		7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCard.swift; sourceTree = "<group>"; };
 		7F9E7F79527DCDB80A8AB752 /* MorningIntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningIntentionView.swift; sourceTree = "<group>"; };
+		92762143237735688F7E396F /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSessionView.swift; sourceTree = "<group>"; };
 		9717EEE17976B489D61B655B /* AmbientSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSoundPlayer.swift; sourceTree = "<group>"; };
 		A018D815ACB1D1B43278449D /* AmbientSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSound.swift; sourceTree = "<group>"; };
+		ABC6EE066839C9830688CCFB /* NarrativeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrativeService.swift; sourceTree = "<group>"; };
 		AF85270DC3CD542FDCC01E33 /* CustomTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTemplate.swift; sourceTree = "<group>"; };
 		BD009BDA2A808380697A11AF /* InsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModel.swift; sourceTree = "<group>"; };
 		CADD9689C71F719A921C738A /* BreathingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingService.swift; sourceTree = "<group>"; };
@@ -216,7 +220,9 @@
 			children = (
 				9717EEE17976B489D61B655B /* AmbientSoundPlayer.swift */,
 				CADD9689C71F719A921C738A /* BreathingService.swift */,
+				92762143237735688F7E396F /* CalendarService.swift */,
 				DDFCE4AE254A3A8BB5CE5028 /* DatabaseService.swift */,
+				ABC6EE066839C9830688CCFB /* NarrativeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				6E709656CBEBD8D362DB21BC /* BreathingService.swift in Sources */,
 				FF335B127E90CCAB01006627 /* BreathingSession.swift in Sources */,
 				BCA8F5A895924402A0D5D07E /* BreathingSessionView.swift in Sources */,
+				4D3FF49F6CCE7A58BB534A43 /* CalendarService.swift in Sources */,
 				1F68F2727FB5EACA3FF431DD /* CheckIn.swift in Sources */,
 				23D4BE1CD4EB273309E6FC14 /* CheckInButton.swift in Sources */,
 				184133752FE131F195CBC58A /* CommunityTemplatesView.swift in Sources */,
@@ -342,6 +349,7 @@
 				B6A3209EF22BA8348E139DAB /* IntentionTemplate.swift in Sources */,
 				0766C0F35AF9902EA5F88CEB /* MainTabView.swift in Sources */,
 				E673F7CA695C720E433078D5 /* MorningIntentionView.swift in Sources */,
+				EC63870FEBE6ED3B4EF7C62E /* NarrativeService.swift in Sources */,
 				790EE758A43B2D498611B8A2 /* RitualApp.swift in Sources */,
 				A70BC060774CD36CDF09E7AC /* Streak.swift in Sources */,
 				750F496034F603EFEF78665D /* TemplateCreatorView.swift in Sources */,
@@ -494,6 +502,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Ritual;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Ritual checks your calendar for events that may conflict with your daily intentions.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Ritual checks your calendar for events that may conflict with your daily intentions.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,6 +526,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Ritual;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Ritual checks your calendar for events that may conflict with your daily intentions.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Ritual checks your calendar for events that may conflict with your daily intentions.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

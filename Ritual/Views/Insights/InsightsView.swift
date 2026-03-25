@@ -87,6 +87,34 @@ struct InsightsView: View {
                         .padding(.horizontal, Theme.spacingM)
                 }
 
+                // R4: AI Narrative Insights
+                if !viewModel.narrativeInsights.isEmpty {
+                    VStack(alignment: .leading, spacing: Theme.spacingS) {
+                        Text("WEEKLY NARRATIVE")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(Theme.textMuted)
+                            .tracking(1)
+                            .padding(.horizontal, Theme.spacingM)
+
+                        ForEach(viewModel.narrativeInsights) { insight in
+                            NarrativeInsightCard(insight: insight)
+                                .padding(.horizontal, Theme.spacingM)
+                        }
+                    }
+                }
+
+                // R4: Sleep Correlation
+                if let sleep = viewModel.sleepCorrelation {
+                    SleepCorrelationCard(correlation: sleep)
+                        .padding(.horizontal, Theme.spacingM)
+                }
+
+                // R4: Calendar Conflict Warning
+                if let conflict = viewModel.calendarConflict {
+                    CalendarConflictCard(conflict: conflict)
+                        .padding(.horizontal, Theme.spacingM)
+                }
+
                 // Category insights
                 if !viewModel.insights.isEmpty {
                     VStack(alignment: .leading, spacing: Theme.spacingS) {
@@ -108,6 +136,109 @@ struct InsightsView: View {
             }
             .padding(.vertical, Theme.spacingM)
         }
+    }
+}
+
+struct NarrativeInsightCard: View {
+    let insight: NarrativeInsight
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: insight.icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text(insight.headline)
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text(insight.body)
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+struct SleepCorrelationCard: View {
+    let correlation: SleepCorrelation
+
+    private var icon: String {
+        switch correlation.pattern {
+        case .neutral: return "equal.circle"
+        case .betterWithSettledSleep: return "moon.zzz.fill"
+        case .strongerWhenTired: return "bolt.fill"
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text("Sleep Pattern")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text(correlation.headline)
+                .font(.system(size: 15, weight: .medium, design: .serif))
+                .foregroundColor(Theme.goldGlow)
+
+            Text(correlation.body)
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldPrimary.opacity(0.4), lineWidth: 1)
+        )
+    }
+}
+
+struct CalendarConflictCard: View {
+    let conflict: CalendarConflictReport
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: "calendar.badge.exclamationmark")
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.warning)
+                Text("Calendar Today")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text(conflict.headline)
+                .font(.system(size: 15, weight: .medium, design: .serif))
+                .foregroundColor(Theme.warning)
+
+            Text(conflict.body)
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.warning.opacity(0.5), lineWidth: 1)
+        )
     }
 }
 

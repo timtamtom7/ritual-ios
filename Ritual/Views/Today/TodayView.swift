@@ -1,4 +1,5 @@
 import SwiftUI
+import EventKit
 
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
@@ -152,6 +153,11 @@ struct TodayView: View {
 
     @ViewBuilder
     private var morningFlowSection: some View {
+        // Calendar conflict warning
+        if !viewModel.morningConflicts.isEmpty {
+            CalendarConflictWarning(conflicts: viewModel.morningConflicts)
+        }
+
         MorningIntentionView(
             onComplete: { text in
                 viewModel.saveIntention(text)
@@ -358,5 +364,70 @@ struct MissDot: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
         return String(formatter.string(from: date).prefix(1))
+    }
+}
+
+struct CalendarConflictWarning: View {
+    let conflicts: [EKEvent]
+    @State private var isExpanded = false
+
+    private var eventTitles: [String] {
+        conflicts.prefix(3).compactMap { $0.title }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            Button(action: { withAnimation { isExpanded.toggle() } }) {
+                HStack(spacing: Theme.spacingS) {
+                    Image(systemName: "calendar.badge.exclamationmark")
+                        .font(.system(size: 18))
+                        .foregroundColor(Theme.warning)
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(conflicts.count) calendar event\(conflicts.count == 1 ? "" : "s") today")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(Theme.textPrimary)
+                        if !isExpanded {
+                            Text("Tap to see details")
+                                .font(.system(size: 13))
+                                .foregroundColor(Theme.textMuted)
+                        }
+                    }
+
+                    Spacer()
+
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                        .font(.system(size: 12))
+                        .foregroundColor(Theme.textMuted)
+                }
+            }
+
+            if isExpanded {
+                VStack(alignment: .leading, spacing: Theme.spacingXS) {
+                    ForEach(eventTitles, id: \.self) { title in
+                        HStack(spacing: Theme.spacingS) {
+                            Image(systemName: "circle.fill")
+                                .font(.system(size: 6))
+                                .foregroundColor(Theme.warning)
+                            Text(title)
+                                .font(.system(size: 14))
+                                .foregroundColor(Theme.textSecondary)
+                        }
+                    }
+                    Text("These events may compete for your attention today.")
+                        .font(.system(size: 13))
+                        .foregroundColor(Theme.textMuted)
+                        .padding(.top, 4)
+                }
+                .padding(.leading, Theme.spacingXL + Theme.spacingS)
+            }
+        }
+        .padding(Theme.spacingM)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.warning.opacity(0.4), lineWidth: 1)
+        )
     }
 }

@@ -29,6 +29,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ritual.app
         INFOPLIST_KEY_CFBundleDisplayName: Ritual
+        INFOPLIST_KEY_NSCalendarsUsageDescription: "Ritual checks your calendar for events that may conflict with your daily intentions."
+        INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription: "Ritual checks your calendar for events that may conflict with your daily intentions."
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
