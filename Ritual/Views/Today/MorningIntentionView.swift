@@ -21,6 +21,10 @@ struct MorningIntentionView: View {
             }
         }
         .animation(.easeInOut(duration: 0.6), value: currentStep)
+        .onDisappear {
+            breathingTask?.cancel()
+            breathingPhase = 0
+        }
     }
 
     private var settlingView: some View {

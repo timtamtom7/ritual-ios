@@ -6,6 +6,7 @@ struct CommunityTemplatesView: View {
     @State private var showAdoptedToast: Bool = false
     @State private var showTemplateCreator: Bool = false
     @State private var customTemplates: [CustomTemplate] = []
+    @State private var isLoadingCustomTemplates: Bool = false
 
     private var categories: [String] {
         var cats = Set<String>()
@@ -152,7 +153,9 @@ struct CommunityTemplatesView: View {
     }
 
     private func loadCustomTemplates() {
+        isLoadingCustomTemplates = true
         customTemplates = DatabaseService.shared.getCustomTemplates()
+        isLoadingCustomTemplates = false
     }
 
     private func adoptTemplate(_ template: IntentionTemplate) {
