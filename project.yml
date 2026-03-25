@@ -28,6 +28,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ritual.app
+        PRODUCT_MODULE_NAME: Ritual
         INFOPLIST_KEY_CFBundleDisplayName: Ritual
         INFOPLIST_KEY_NSCalendarsUsageDescription: "Ritual checks your calendar for events that may conflict with your daily intentions."
         INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription: "Ritual checks your calendar for events that may conflict with your daily intentions."
@@ -41,3 +42,43 @@ targets:
     dependencies:
       - package: SQLite
         product: SQLite
+
+  RitualWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: RitualWatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ritual.app.watchkitapp
+        PRODUCT_MODULE_NAME: RitualWatch
+        INFOPLIST_FILE: RitualWatch/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        WATCHOS_DEPLOYMENT_TARGET: "11.0"
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic
+        SKIP_INSTALL: YES
+
+  RitualWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: RitualWidgets
+        excludes:
+          - "**/*.plist"
+    resources:
+      - path: RitualWidgets/Resources
+        excludes:
+          - "**/*.plist"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ritual.app.widgets
+        PRODUCT_MODULE_NAME: RitualWidgets
+        INFOPLIST_FILE: RitualWidgets/Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
+        SKIP_INSTALL: YES
+        CODE_SIGN_ENTITLEMENTS: ""

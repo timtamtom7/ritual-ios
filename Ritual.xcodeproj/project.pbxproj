@@ -17,6 +17,8 @@
 		1F68F2727FB5EACA3FF431DD /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE47B33374138A9FCE39CF49 /* CheckIn.swift */; };
 		23D4BE1CD4EB273309E6FC14 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDDD9B1F3A1CC355D2FC12 /* CheckInButton.swift */; };
 		298CD5037B5D559564FD81E8 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD009BDA2A808380697A11AF /* InsightsViewModel.swift */; };
+		3AC5DDA682131AA1730FE54A /* RitualWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC39DECA442162AD9EA65A6 /* RitualWatchApp.swift */; };
+		4786DFD009E5E455DD72FE74 /* RitualWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FBFB58FEF4D26D98D9BBD /* RitualWidgets.swift */; };
 		4D3FF49F6CCE7A58BB534A43 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92762143237735688F7E396F /* CalendarService.swift */; };
 		508BE22403D7F32EC842E061 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4325EB720C92BD73B16FFD5 /* TodayViewModel.swift */; };
 		5512C02E088D48BBA21DC807 /* BreathingGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BF255CD4A94D011E7CE342 /* BreathingGuideView.swift */; };
@@ -36,6 +38,7 @@
 		BCA8F5A895924402A0D5D07E /* BreathingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */; };
 		D4104D3DE09F55A2BF52679F /* EveningCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086D978A478D92E007F3AA82 /* EveningCheckInView.swift */; };
 		D4A5DF8AB5A849D47FF326A2 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */; };
+		E2170BC66ED59CEE8C9B92E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF365B60411350F3EB0DBA5F /* Assets.xcassets */; };
 		E673F7CA695C720E433078D5 /* MorningIntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E7F79527DCDB80A8AB752 /* MorningIntentionView.swift */; };
 		E8EEBEA2534CDBDEC938D6D6 /* AmbientSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717EEE17976B489D61B655B /* AmbientSoundPlayer.swift */; };
 		EC63870FEBE6ED3B4EF7C62E /* NarrativeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6EE066839C9830688CCFB /* NarrativeService.swift */; };
@@ -49,9 +52,12 @@
 		086D978A478D92E007F3AA82 /* EveningCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningCheckInView.swift; sourceTree = "<group>"; };
 		0DFC3CA8127B73FD35157B37 /* IntentionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTemplate.swift; sourceTree = "<group>"; };
 		24C50C7F9D8CB6A2468E2D4F /* BreathingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingCircleView.swift; sourceTree = "<group>"; };
+		254FBFB58FEF4D26D98D9BBD /* RitualWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualWidgets.swift; sourceTree = "<group>"; };
 		263DE7885C5DE859F6DCE54C /* RitualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualApp.swift; sourceTree = "<group>"; };
+		2AC39DECA442162AD9EA65A6 /* RitualWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualWatchApp.swift; sourceTree = "<group>"; };
 		37BAAC92941D0AF974A2C86E /* IntentionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionInputView.swift; sourceTree = "<group>"; };
 		3EB74F2350231C054F8EB7C8 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		5DB1EF7A93362D84D35EEFA6 /* RitualWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RitualWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654A3763EDD634EBCC0B09E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66524903C0F49BDD5ED47760 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		69BF255CD4A94D011E7CE342 /* BreathingGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuideView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 		7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCard.swift; sourceTree = "<group>"; };
 		7F9E7F79527DCDB80A8AB752 /* MorningIntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningIntentionView.swift; sourceTree = "<group>"; };
+		8D9433E9B6387AC2C964596C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92762143237735688F7E396F /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSessionView.swift; sourceTree = "<group>"; };
 		9717EEE17976B489D61B655B /* AmbientSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSoundPlayer.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		AF85270DC3CD542FDCC01E33 /* CustomTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTemplate.swift; sourceTree = "<group>"; };
 		BD009BDA2A808380697A11AF /* InsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModel.swift; sourceTree = "<group>"; };
 		CADD9689C71F719A921C738A /* BreathingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingService.swift; sourceTree = "<group>"; };
+		CEC2BC228C148CB981986D7D /* RitualWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = RitualWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CDDD9B1F3A1CC355D2FC12 /* CheckInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInButton.swift; sourceTree = "<group>"; };
 		DDFCE4AE254A3A8BB5CE5028 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		DF906CC99A78396D999E3D70 /* TemplateCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreatorView.swift; sourceTree = "<group>"; };
@@ -78,6 +86,7 @@
 		EE47B33374138A9FCE39CF49 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		F4325EB720C92BD73B16FFD5 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		F704C0460CFBC4670D6CDD1A /* Ritual.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Ritual.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF365B60411350F3EB0DBA5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +111,14 @@
 				EB0103EF0F30555D6788BCA5 /* TodayView.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		13BD2A757343ADF025279C84 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2AC39DECA442162AD9EA65A6 /* RitualWatchApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		31BD2C6C1086830306EC73E5 /* Ritual */ = {
@@ -143,6 +160,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		4F725EB9DEA76CF2FCB90A0C /* RitualWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				254FBFB58FEF4D26D98D9BBD /* RitualWidgets.swift */,
+				DBCFD2C0BD755FE4971DA273 /* Resources */,
+			);
+			path = RitualWidgets;
+			sourceTree = "<group>";
+		};
 		528F3273E26D223E9D45FA79 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +181,13 @@
 			isa = PBXGroup;
 			children = (
 				654A3763EDD634EBCC0B09E6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7374954766203BB75AAAE9F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,8 +217,17 @@
 			isa = PBXGroup;
 			children = (
 				F704C0460CFBC4670D6CDD1A /* Ritual.app */,
+				5DB1EF7A93362D84D35EEFA6 /* RitualWatch.app */,
+				CEC2BC228C148CB981986D7D /* RitualWidgets.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B2191490156FB5FDB7CF947D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B2A9D7944C2C5511F3715BA5 /* Insights */ = {
@@ -215,6 +257,14 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
+		DBCFD2C0BD755FE4971DA273 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF365B60411350F3EB0DBA5F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		DBE3F232FAED5421934ECC2A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,10 +277,24 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E52D00167A8D528A4A2C7909 /* RitualWatch */ = {
+			isa = PBXGroup;
+			children = (
+				8D9433E9B6387AC2C964596C /* Info.plist */,
+				13BD2A757343ADF025279C84 /* App */,
+				B2191490156FB5FDB7CF947D /* Models */,
+				7374954766203BB75AAAE9F8 /* Resources */,
+				EA7AE49C6425960B1AB5020E /* Views */,
+			);
+			path = RitualWatch;
+			sourceTree = "<group>";
+		};
 		E5ADE409670491E2C0FC45E8 = {
 			isa = PBXGroup;
 			children = (
 				31BD2C6C1086830306EC73E5 /* Ritual */,
+				E52D00167A8D528A4A2C7909 /* RitualWatch */,
+				4F725EB9DEA76CF2FCB90A0C /* RitualWidgets */,
 				A4F9419EFDF97A8C65C43982 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -241,6 +305,13 @@
 				932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */,
 			);
 			path = Breathing;
+			sourceTree = "<group>";
+		};
+		EA7AE49C6425960B1AB5020E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F9CBB09533BA7AF72EF3C386 /* Community */ = {
@@ -275,6 +346,37 @@
 			productReference = F704C0460CFBC4670D6CDD1A /* Ritual.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C80BA77595D4AE0DAAC1D68F /* RitualWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD2F4D11EF9042A1130FAF75 /* Build configuration list for PBXNativeTarget "RitualWatch" */;
+			buildPhases = (
+				C9852C8D4D10328E1AD136AA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RitualWatch;
+			productName = RitualWatch;
+			productReference = 5DB1EF7A93362D84D35EEFA6 /* RitualWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E13C820459B8D26680B614E9 /* RitualWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22BB3317A44055C8BBE3AB5D /* Build configuration list for PBXNativeTarget "RitualWidgets" */;
+			buildPhases = (
+				6F2388BB34F20CF834A773FA /* Sources */,
+				B4BDEDE4CB5C3904B40C4AA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RitualWidgets;
+			productName = RitualWidgets;
+			productReference = CEC2BC228C148CB981986D7D /* RitualWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -285,6 +387,10 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					149E96F67316A8B8D0663B70 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					C80BA77595D4AE0DAAC1D68F = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
@@ -306,6 +412,8 @@
 			projectRoot = "";
 			targets = (
 				149E96F67316A8B8D0663B70 /* Ritual */,
+				C80BA77595D4AE0DAAC1D68F /* RitualWatch */,
+				E13C820459B8D26680B614E9 /* RitualWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -319,9 +427,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4BDEDE4CB5C3904B40C4AA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2170BC66ED59CEE8C9B92E9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6F2388BB34F20CF834A773FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4786DFD009E5E455DD72FE74 /* RitualWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9852C8D4D10328E1AD136AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC5DDA682131AA1730FE54A /* RitualWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E700B808675E79BB56231E7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,7 +555,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -483,11 +614,29 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		282385621DD9B37DEA41E7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RitualWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app.watchkitapp;
+				PRODUCT_MODULE_NAME = RitualWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
@@ -510,6 +659,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app;
+				PRODUCT_MODULE_NAME = Ritual;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -534,7 +684,57 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app;
+				PRODUCT_MODULE_NAME = Ritual;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B934FB408A2C0FA9FF4F6B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RitualWidgets/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app.widgets;
+				PRODUCT_MODULE_NAME = RitualWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB9EF5F727405523AFDF79E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RitualWatch/Info.plist;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app.watchkitapp;
+				PRODUCT_MODULE_NAME = RitualWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		BBA44121C7F078EFF00832D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RitualWidgets/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ritual.app.widgets;
+				PRODUCT_MODULE_NAME = RitualWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -551,11 +751,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		22BB3317A44055C8BBE3AB5D /* Build configuration list for PBXNativeTarget "RitualWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B934FB408A2C0FA9FF4F6B38 /* Debug */,
+				BBA44121C7F078EFF00832D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		78DD5FCABDB6217690623448 /* Build configuration list for PBXProject "Ritual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FFB8768B5BE9EEBF125668E /* Debug */,
 				26C17043A98CC5FED6D8A4D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DD2F4D11EF9042A1130FAF75 /* Build configuration list for PBXNativeTarget "RitualWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB9EF5F727405523AFDF79E5 /* Debug */,
+				282385621DD9B37DEA41E7C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
