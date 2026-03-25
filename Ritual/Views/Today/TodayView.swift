@@ -13,6 +13,11 @@ struct TodayView: View {
 
                 ScrollView {
                     VStack(spacing: Theme.spacingL) {
+                        // Free tier limitation banner
+                        if viewModel.currentTier == .free && viewModel.todaysIntentions.count >= 2 {
+                            freeTierBanner
+                        }
+
                         streakSection
                         headerSection
 
@@ -41,6 +46,14 @@ struct TodayView: View {
                         .font(.system(size: 17, weight: .medium))
                         .foregroundColor(Theme.textPrimary)
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        SettingsView()
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(Theme.goldPrimary)
+                    }
+                }
             }
             .sheet(isPresented: $showingBreathing) {
                 BreathingSessionView()
@@ -68,6 +81,43 @@ struct TodayView: View {
         } else {
             return "Good Evening"
         }
+    }
+
+    private var freeTierBanner: some View {
+        VStack(spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: "crown")
+                    .foregroundColor(Theme.goldPrimary)
+                Text("You're using \(viewModel.todaysIntentions.count)/3 free intentions today")
+                    .font(.system(size: 13))
+                    .foregroundColor(Theme.textPrimary)
+                Spacer()
+            }
+
+            Text("Upgrade to Pro for unlimited intentions, full insights, and adaptive breathing.")
+                .font(.system(size: 12))
+                .foregroundColor(Theme.textMuted)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            Button {
+                // Show paywall
+            } label: {
+                Text("Upgrade to Pro")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(Color(hex: "0D0B09"))
+                    .padding(.horizontal, Theme.spacingM)
+                    .padding(.vertical, 6)
+                    .background(Theme.goldPrimary)
+                    .cornerRadius(Theme.buttonRadius)
+            }
+        }
+        .padding(Theme.spacingM)
+        .background(Theme.goldPrimary.opacity(0.08))
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldPrimary.opacity(0.3), lineWidth: 1)
+        )
     }
 
     private var dateString: String {

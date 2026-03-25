@@ -20,6 +20,7 @@ final class TodayViewModel: ObservableObject {
 
     private let database = DatabaseService.shared
     private let calendarService = CalendarService.shared
+    private let subscriptionService = SubscriptionService.shared
 
     var isMorning: Bool {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -29,6 +30,26 @@ final class TodayViewModel: ObservableObject {
     var isEvening: Bool {
         let hour = Calendar.current.component(.hour, from: Date())
         return hour >= 18
+    }
+
+    var intentionLimitReached: Bool {
+        subscriptionService.intentionLimitReached(todayCount: todaysIntentions.count)
+    }
+
+    var currentTier: SubscriptionTier {
+        subscriptionService.currentTier
+    }
+
+    var isSubscribed: Bool {
+        subscriptionService.isSubscribed
+    }
+
+    var todaysIntentions: [Intention] {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: Date())
+        return database.getIntentions().filter {
+            calendar.isDate($0.createdAt, inSameDayAs: startOfDay)
+        }
     }
 
     init() {
