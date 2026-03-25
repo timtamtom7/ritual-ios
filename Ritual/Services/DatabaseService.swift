@@ -260,4 +260,171 @@ final class DatabaseService {
         }
         return Double(successes) / Double(categoryIntentions.count) * 100
     }
+
+    // MARK: - Streak
+
+    private let streakDataKey = "streak_data"
+
+    func getStreakData() -> StreakData {
+        guard let data = UserDefaults.standard.data(forKey: streakDataKey),
+              let streak = try? JSONDecoder().decode(StreakData.self, from: data) else {
+            return StreakData()
+        }
+        return streak
+    }
+
+    func updateStreak(checkedIn: Bool, usedFreeze: Bool = false) {
+        var streak = getStreakData()
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+
+        if checkedIn {
+            if let lastDate = streak.lastCheckInDate {
+                let lastDay = calendar.startOfDay(for: lastDate)
+                if lastDay == today {
+                    // Already checked in today
+                    return
+                } else if let yesterday = calendar.date(byAdding: .day, value: -1, to: today),
+                          lastDay == yesterday || streak.missedDays.contains(where: { calendar.isDate($0, inSameDayAs: yesterday) }) {
+                    // Continuing streak or yesterday was missed but we used freeze
+                    if usedFreeze {
+                        streak.currentStreak += 1
+                    } else {
+                        streak.currentStreak += 1
+                    }
+                } else {
+                    // Streak broken, start new
+                    streak.currentStreak = 1
+                }
+            } else {
+                streak.currentStreak = 1
+            }
+
+            streak.lastCheckInDate = today
+            if streak.currentStreak > streak.longestStreak {
+                streak.longestStreak = streak.currentStreak
+            }
+            // Remove today from missed if it was there
+            streak.missedDays.removeAll { calendar.isDate($0, inSameDayAs: today) }
+        } else {
+            // Missed day
+            if streak.lastCheckInDate != nil && !calendar.isDateInToday(streak.lastCheckInDate!) {
+                if !streak.missedDays.contains(where: { calendar.isDate($0, inSameDayAs: today) }) {
+                    streak.missedDays.append(today)
+                }
+                // Only reset if yesterday wasn't checked in and we didn't use freeze
+                if !usedFreeze {
+                    streak.currentStreak = 0
+                }
+            }
+        }
+
+        saveStreakData(streak)
+    }
+
+    func useStreakFreeze() -> Bool {
+        var streak = getStreakData()
+        guard streak.streakFreezes > 0 else { return false }
+        streak.streakFreezes -= 1
+        streak.currentStreak += 1
+        if streak.currentStreak > streak.longestStreak {
+            streak.longestStreak = streak.currentStreak
+        }
+        saveStreakData(streak)
+        return true
+    }
+
+    func addStreakFreeze() {
+        var streak = getStreakData()
+        streak.streakFreezes += 1
+        saveStreakData(streak)
+    }
+
+    func streakAnniversary() -> String? {
+        let streak = getStreakData()
+        let milestones = [7, 14, 21, 30, 60, 90, 100, 365]
+        if let milestone = milestones.first(where: { $0 == streak.currentStreak }) {
+            return "You hit \(milestone) days. Intention-setting is now a habit."
+        }
+        return nil
+    }
+
+    private func saveStreakData(_ streak: StreakData) {
+        if let data = try? JSONEncoder().encode(streak) {
+            UserDefaults.standard.set(data, forKey: streakDataKey)
+        }
+    }
+
+    // MARK: - Weekly Report
+
+    func generateWeeklyReport() -> String? {
+        let calendar = Calendar.current
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+        let intentions = getIntentions().filter { $0.createdAt >= weekAgo }
+        guard !intentions.isEmpty else { return nil }
+
+        var lines: [String] = []
+        lines.append("This week, you set \(intentions.count) intention\(intentions.count == 1 ? "" : "s").")
+
+        // Success rate
+        var successes = 0
+        for intention in intentions {
+            let checkIns = getCheckIns(forIntentionId: intention.id)
+            if let latest = checkIns.first, latest.acted { successes += 1 }
+        }
+        let rate = intentions.isEmpty ? 0 : Int(Double(successes) / Double(intentions.count) * 100)
+        lines.append("You acted on \(rate)% of them.")
+
+        // Deadline correlation
+        let deadlineKeywords = ["by ", "today", "tonight", "before"]
+        let withDeadline = intentions.filter { intention in
+            let text = intention.text.lowercased()
+            return deadlineKeywords.contains { text.contains($0) }
+        }
+        if !withDeadline.isEmpty {
+            var deadlineSuccesses = 0
+            for intention in withDeadline {
+                let checkIns = getCheckIns(forIntentionId: intention.id)
+                if let latest = checkIns.first, latest.acted { deadlineSuccesses += 1 }
+            }
+            let deadlineRate = withDeadline.isEmpty ? 0 : Int(Double(deadlineSuccesses) / Double(withDeadline.count) * 100)
+            if deadlineRate > rate {
+                lines.append("Intentions with a deadline succeed \(deadlineRate)% of the time — \(deadlineRate - rate)% higher than average.")
+            }
+        }
+
+        // Category theme
+        let grouped = getIntentionsGroupedByCategory()
+        let recentGrouped = Dictionary(grouping: intentions) { $0.category ?? "Other" }
+        if let dominant = recentGrouped.max(by: { $0.value.count < $1.value.count }) {
+            lines.append("This week, \(dominant.key.lowercased()) intentions dominated your practice.")
+        }
+
+        return lines.joined(separator: " ")
+    }
+
+    // MARK: - Monthly Theme
+
+    func getMonthlyTheme() -> String? {
+        let calendar = Calendar.current
+        let monthAgo = calendar.date(byAdding: .day, value: -30, to: Date())!
+        let intentions = getIntentions().filter { $0.createdAt >= monthAgo }
+        guard intentions.count >= 3 else { return nil }
+
+        let recentGrouped = Dictionary(grouping: intentions) { $0.category ?? "Other" }
+        guard let dominant = recentGrouped.max(by: { $0.value.count < $1.value.count }) else { return nil }
+        guard let allTimeDominant = getIntentionsGroupedByCategory().max(by: { $0.value.count < $1.value.count }) else { return nil }
+
+        if dominant.key != allTimeDominant.key {
+            return "This month you set a lot of \(dominant.key.lowercased()) intentions. \(allTimeDominant.key.lowercased()) intentions dropped."
+        } else {
+            return "\(dominant.key.lowercased()) has been your consistent focus this month."
+        }
+    }
+
+    // MARK: - Breathing History
+
+    func getBreathingHistory() -> [BreathingSession] {
+        return getBreathingSessions()
+    }
 }

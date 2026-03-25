@@ -20,12 +20,18 @@ enum BreathingPattern: String, Codable, CaseIterable {
     case box = "Box"
     case calm = "Calm"
     case energize = "Energize"
+    case coherent = "Coherent"
+    case sleep = "Sleep"
+    case custom = "Custom"
 
     var description: String {
         switch self {
         case .box: return "4-4-4-4"
         case .calm: return "4-7-8"
         case .energize: return "6-0-6-0"
+        case .coherent: return "5-5"
+        case .sleep: return "4-7-8"
+        case .custom: return "Personal"
         }
     }
 
@@ -36,7 +42,24 @@ enum BreathingPattern: String, Codable, CaseIterable {
         case .calm:
             return [("Breathe In", 4), ("Hold", 7), ("Breathe Out", 8)]
         case .energize:
-            return [("Breathe In", 6), ("Hold", 0), ("Breathe Out", 6)]
+            return [("Breathe In", 6), ("Breathe Out", 6)]
+        case .coherent:
+            return [("Breathe In", 5), ("Breathe Out", 5)]
+        case .sleep:
+            return [("Breathe In", 4), ("Hold", 7), ("Breathe Out", 8)]
+        case .custom:
+            return [("Breathe In", 4), ("Hold", 4), ("Breathe Out", 4), ("Hold", 4)]
+        }
+    }
+
+    var suggestedTime: String {
+        switch self {
+        case .box: return "Anytime"
+        case .calm: return "Morning"
+        case .energize: return "Morning"
+        case .coherent: return "Anytime"
+        case .sleep: return "Evening"
+        case .custom: return "Personal"
         }
     }
 }

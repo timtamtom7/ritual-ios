@@ -75,6 +75,18 @@ struct InsightsView: View {
                 }
                 .padding(.horizontal, Theme.spacingM)
 
+                // Weekly Report
+                if let report = viewModel.weeklyReport {
+                    WeeklyReportCard(report: report)
+                        .padding(.horizontal, Theme.spacingM)
+                }
+
+                // Monthly Theme
+                if let theme = viewModel.monthlyTheme {
+                    MonthlyThemeCard(theme: theme)
+                        .padding(.horizontal, Theme.spacingM)
+                }
+
                 // Category insights
                 if !viewModel.insights.isEmpty {
                     VStack(alignment: .leading, spacing: Theme.spacingS) {
@@ -96,6 +108,65 @@ struct InsightsView: View {
             }
             .padding(.vertical, Theme.spacingM)
         }
+    }
+}
+
+struct WeeklyReportCard: View {
+    let report: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: "text.alignleft")
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text("Weekly Ritual Report")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text(report)
+                .font(.system(size: 15, weight: .regular, design: .serif))
+                .foregroundColor(Theme.textSecondary)
+                .italic()
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+struct MonthlyThemeCard: View {
+    let theme: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: "calendar")
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text("Monthly Theme")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+            }
+
+            Text(theme)
+                .font(.system(size: 15, weight: .regular, design: .serif))
+                .foregroundColor(Theme.textSecondary)
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
     }
 }
 

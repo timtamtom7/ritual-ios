@@ -17,11 +17,17 @@ struct MainTabView: View {
                 }
                 .tag(1)
 
+            CommunityTemplatesView()
+                .tabItem {
+                    Label("Templates", systemImage: "square.grid.2x2")
+                }
+                .tag(2)
+
             InsightsView()
                 .tabItem {
                     Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
                 }
-                .tag(2)
+                .tag(3)
         }
         .tint(Theme.goldPrimary)
         .onAppear {

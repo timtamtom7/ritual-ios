@@ -38,6 +38,8 @@ final class InsightsViewModel: ObservableObject {
     @Published var hasEnoughData: Bool = false
     @Published var totalIntentions: Int = 0
     @Published var totalCheckIns: Int = 0
+    @Published var weeklyReport: String?
+    @Published var monthlyTheme: String?
 
     private let database = DatabaseService.shared
 
@@ -59,8 +61,13 @@ final class InsightsViewModel: ObservableObject {
 
         guard hasEnoughData else {
             insights = []
+            weeklyReport = nil
+            monthlyTheme = nil
             return
         }
+
+        weeklyReport = database.generateWeeklyReport()
+        monthlyTheme = database.getMonthlyTheme()
 
         let grouped = database.getIntentionsGroupedByCategory()
         var categoryInsights: [CategoryInsight] = []

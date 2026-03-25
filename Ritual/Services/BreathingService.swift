@@ -15,7 +15,10 @@ final class BreathingService: ObservableObject {
 
     private var phaseTimer: Timer?
     private var currentPattern: BreathingPattern = .box
+    private var currentDuration: Int = 3
     private var hapticEnabled: Bool = true
+    private var currentSessionId: String?
+    private let database = DatabaseService.shared
 
     var onPhaseChanged: ((BreathingPhase) -> Void)?
 
@@ -43,9 +46,19 @@ final class BreathingService: ObservableObject {
 
     func startSession(pattern: BreathingPattern, durationMinutes: Int, hapticEnabled: Bool = true) {
         self.currentPattern = pattern
+        self.currentDuration = durationMinutes
         self.hapticEnabled = hapticEnabled
         self.isRunning = true
         self.isPaused = false
+
+        // Save session to database
+        let session = BreathingSession(
+            pattern: pattern,
+            durationSeconds: durationMinutes * 60,
+            completed: false
+        )
+        currentSessionId = session.id
+        try? database.saveBreathingSession(session)
 
         try? engine?.start()
 
@@ -82,7 +95,7 @@ final class BreathingService: ObservableObject {
         // Auto-stop after duration
         let totalDuration = TimeInterval(durationMinutes * 60)
         DispatchQueue.main.asyncAfter(deadline: .now() + totalDuration) { [weak self] in
-            self?.stopSession()
+            self?.completeSession()
         }
     }
 
@@ -124,11 +137,29 @@ final class BreathingService: ObservableObject {
     }
 
     func stopSession() {
+        // Mark session as incomplete if stopped early
+        if let sessionId = currentSessionId {
+            try? database.updateBreathingSessionCompleted(sessionId, completed: false)
+        }
         isRunning = false
         isPaused = false
         currentPhase = .idle
         phaseTimer?.invalidate()
         phaseTimer = nil
+        currentSessionId = nil
+        stopHaptic()
+    }
+
+    private func completeSession() {
+        if let sessionId = currentSessionId {
+            try? database.updateBreathingSessionCompleted(sessionId, completed: true)
+        }
+        isRunning = false
+        isPaused = false
+        currentPhase = .idle
+        phaseTimer?.invalidate()
+        phaseTimer = nil
+        currentSessionId = nil
         stopHaptic()
     }
 

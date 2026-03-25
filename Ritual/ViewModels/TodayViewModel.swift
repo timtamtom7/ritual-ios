@@ -10,6 +10,8 @@ final class TodayViewModel: ObservableObject {
     @Published var showMorningFlow: Bool = false
     @Published var showEveningFlow: Bool = false
     @Published var showBreathingSession: Bool = false
+    @Published var streakData: StreakData = StreakData()
+    @Published var streakAnniversary: String?
 
     private let database = DatabaseService.shared
 
@@ -34,6 +36,8 @@ final class TodayViewModel: ObservableObject {
         }
         hasCompletedMorningIntention = todaysIntention != nil
         hasCompletedEveningCheckIn = todaysCheckIn != nil
+        streakData = database.getStreakData()
+        streakAnniversary = database.streakAnniversary()
 
         // Show morning flow if it's morning and no intention set
         if isMorning && todaysIntention == nil {
@@ -64,11 +68,20 @@ final class TodayViewModel: ObservableObject {
         let checkIn = CheckIn(intentionId: intention.id, acted: acted, reflection: reflection)
         do {
             try database.saveCheckIn(checkIn)
+            database.updateStreak(checkedIn: acted)
             todaysCheckIn = checkIn
             hasCompletedEveningCheckIn = true
             showEveningFlow = false
+            streakData = database.getStreakData()
+            streakAnniversary = database.streakAnniversary()
         } catch {
             print("Error saving check-in: \(error)")
+        }
+    }
+
+    func useStreakFreeze() {
+        if database.useStreakFreeze() {
+            streakData = database.getStreakData()
         }
     }
 

@@ -4,59 +4,79 @@ struct BreathingCircleView: View {
     let phase: BreathingPhase
     @State private var scale: CGFloat = 0.6
     @State private var glowOpacity: Double = 0.3
+    @State private var innerGlow: Double = 0.2
 
     var body: some View {
         ZStack {
-            // Outer glow
+            // Outer glow ring
             Circle()
                 .fill(
                     RadialGradient(
                         gradient: Gradient(colors: [
-                            Theme.goldPrimary.opacity(glowOpacity * 0.5),
+                            Theme.goldPrimary.opacity(glowOpacity * 0.6),
+                            Theme.goldPrimary.opacity(glowOpacity * 0.2),
                             Theme.goldPrimary.opacity(0)
                         ]),
                         center: .center,
-                        startRadius: 80,
-                        endRadius: 160
+                        startRadius: 60,
+                        endRadius: 180
                     )
                 )
-                .frame(width: 320, height: 320)
+                .frame(width: 360, height: 360)
                 .scaleEffect(scale)
+                .blur(radius: 2)
 
-            // Main circle
+            // Main breathing circle
             Circle()
                 .fill(
                     RadialGradient(
                         gradient: Gradient(colors: [
+                            Theme.goldGlow.opacity(innerGlow),
                             Theme.surface,
                             Theme.background
                         ]),
                         center: .center,
                         startRadius: 0,
-                        endRadius: 130
+                        endRadius: 140
                     )
                 )
-                .frame(width: 260, height: 260)
+                .frame(width: 280, height: 280)
                 .overlay(
                     Circle()
                         .stroke(
-                            LinearGradient(
-                                colors: [Theme.goldPrimary, Theme.goldMuted],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
+                            AngularGradient(
+                                gradient: Gradient(colors: [
+                                    Theme.goldPrimary.opacity(0.8),
+                                    Theme.goldMuted.opacity(0.4),
+                                    Theme.goldPrimary.opacity(0.6)
+                                ]),
+                                center: .center,
+                                startAngle: .degrees(0),
+                                endAngle: .degrees(360)
                             ),
                             lineWidth: 2
                         )
                 )
                 .scaleEffect(scale)
 
-            // Inner ring
+            // Inner shimmer ring
             Circle()
                 .fill(Color.clear)
                 .frame(width: 200, height: 200)
                 .overlay(
                     Circle()
-                        .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+                        .stroke(
+                            LinearGradient(
+                                colors: [
+                                    Theme.goldPrimary.opacity(0.3),
+                                    Theme.goldMuted.opacity(0.1),
+                                    Theme.goldPrimary.opacity(0.2)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
                 )
 
             // Center text
@@ -70,6 +90,7 @@ struct BreathingCircleView: View {
                     Text(phaseHint)
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(Theme.textSecondary)
+                        .transition(.opacity)
                 }
             }
         }
@@ -79,7 +100,8 @@ struct BreathingCircleView: View {
         .onAppear {
             if phase == .idle {
                 scale = 0.6
-                glowOpacity = 0.3
+                glowOpacity = 0.25
+                innerGlow = 0.15
             }
         }
     }
@@ -96,29 +118,34 @@ struct BreathingCircleView: View {
     private func animateForPhase(_ phase: BreathingPhase) {
         switch phase {
         case .inhale:
-            withAnimation(.easeInOut(duration: 4)) {
+            withAnimation(.spring(response: 3.5, dampingFraction: 0.7, blendDuration: 0)) {
                 scale = 1.0
-                glowOpacity = 0.6
+                glowOpacity = 0.7
+                innerGlow = 0.4
             }
         case .holdIn:
-            withAnimation(.easeInOut(duration: 0.5)) {
-                glowOpacity = 0.8
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
+                glowOpacity = 0.85
+                innerGlow = 0.5
             }
         case .exhale:
-            withAnimation(.easeInOut(duration: 4)) {
+            withAnimation(.spring(response: 3.5, dampingFraction: 0.75, blendDuration: 0)) {
                 scale = 0.6
-                glowOpacity = 0.3
+                glowOpacity = 0.25
+                innerGlow = 0.15
             }
         case .holdOut:
-            withAnimation(.easeInOut(duration: 0.5)) {
-                glowOpacity = 0.2
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
+                glowOpacity = 0.15
+                innerGlow = 0.1
             }
         case .paused:
             break
         case .idle:
-            withAnimation(.easeInOut(duration: 0.8)) {
+            withAnimation(.spring(response: 0.8, dampingFraction: 0.7, blendDuration: 0)) {
                 scale = 0.6
-                glowOpacity = 0.3
+                glowOpacity = 0.25
+                innerGlow = 0.15
             }
         }
     }

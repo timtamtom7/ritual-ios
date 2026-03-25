@@ -10,6 +10,7 @@
 		04FE20DAD541BD3BD2CEB1B5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0103EF0F30555D6788BCA5 /* TodayView.swift */; };
 		0766C0F35AF9902EA5F88CEB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66524903C0F49BDD5ED47760 /* MainTabView.swift */; };
 		0BD49D5964CB0961BECFA0EB /* InsightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51BA1E6D74CBBB2E6436FAF /* InsightCard.swift */; };
+		184133752FE131F195CBC58A /* CommunityTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F57D703401E3730F71E34 /* CommunityTemplatesView.swift */; };
 		1A30524D80FC3623F17F7AE4 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377CA2406EDE4185C13F23F /* InsightsView.swift */; };
 		1D42735F7C71BFE49148E38E /* Intention.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A84032CE9045EB8471FC0 /* Intention.swift */; };
 		1F68F2727FB5EACA3FF431DD /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE47B33374138A9FCE39CF49 /* CheckIn.swift */; };
@@ -25,6 +26,8 @@
 		790EE758A43B2D498611B8A2 /* RitualApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DE7885C5DE859F6DCE54C /* RitualApp.swift */; };
 		802EBBE7F964D770ABC3C3D7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFCE4AE254A3A8BB5CE5028 /* DatabaseService.swift */; };
 		87912C96E581714629EBAFCF /* BreathingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C50C7F9D8CB6A2468E2D4F /* BreathingCircleView.swift */; };
+		A70BC060774CD36CDF09E7AC /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71838B6D69C04E74E5BC26CD /* Streak.swift */; };
+		B6A3209EF22BA8348E139DAB /* IntentionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC3CA8127B73FD35157B37 /* IntentionTemplate.swift */; };
 		BB9F669653675E737624CD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654A3763EDD634EBCC0B09E6 /* Assets.xcassets */; };
 		BCA8F5A895924402A0D5D07E /* BreathingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */; };
 		D4104D3DE09F55A2BF52679F /* EveningCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086D978A478D92E007F3AA82 /* EveningCheckInView.swift */; };
@@ -38,6 +41,7 @@
 		02C47942E3C05DEF6C70DC03 /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
 		0377CA2406EDE4185C13F23F /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		086D978A478D92E007F3AA82 /* EveningCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningCheckInView.swift; sourceTree = "<group>"; };
+		0DFC3CA8127B73FD35157B37 /* IntentionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTemplate.swift; sourceTree = "<group>"; };
 		24C50C7F9D8CB6A2468E2D4F /* BreathingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingCircleView.swift; sourceTree = "<group>"; };
 		263DE7885C5DE859F6DCE54C /* RitualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualApp.swift; sourceTree = "<group>"; };
 		37BAAC92941D0AF974A2C86E /* IntentionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionInputView.swift; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 		654A3763EDD634EBCC0B09E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66524903C0F49BDD5ED47760 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		69BF255CD4A94D011E7CE342 /* BreathingGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuideView.swift; sourceTree = "<group>"; };
+		6F9F57D703401E3730F71E34 /* CommunityTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTemplatesView.swift; sourceTree = "<group>"; };
+		71838B6D69C04E74E5BC26CD /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCard.swift; sourceTree = "<group>"; };
 		7F9E7F79527DCDB80A8AB752 /* MorningIntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningIntentionView.swift; sourceTree = "<group>"; };
@@ -107,6 +113,8 @@
 				02C47942E3C05DEF6C70DC03 /* BreathingSession.swift */,
 				EE47B33374138A9FCE39CF49 /* CheckIn.swift */,
 				ED5A84032CE9045EB8471FC0 /* Intention.swift */,
+				0DFC3CA8127B73FD35157B37 /* IntentionTemplate.swift */,
+				71838B6D69C04E74E5BC26CD /* Streak.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			children = (
 				66524903C0F49BDD5ED47760 /* MainTabView.swift */,
 				EA632C1945B5C7099D14B7AD /* Breathing */,
+				F9CBB09533BA7AF72EF3C386 /* Community */,
 				B2A9D7944C2C5511F3715BA5 /* Insights */,
 				D028EBB9857073D6E4AD746B /* Timeline */,
 				0AD8267928A946E800C1875A /* Today */,
@@ -215,6 +224,14 @@
 				932066AFEC3A10C1EC2790BF /* BreathingSessionView.swift */,
 			);
 			path = Breathing;
+			sourceTree = "<group>";
+		};
+		F9CBB09533BA7AF72EF3C386 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				6F9F57D703401E3730F71E34 /* CommunityTemplatesView.swift */,
+			);
+			path = Community;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +315,7 @@
 				BCA8F5A895924402A0D5D07E /* BreathingSessionView.swift in Sources */,
 				1F68F2727FB5EACA3FF431DD /* CheckIn.swift in Sources */,
 				23D4BE1CD4EB273309E6FC14 /* CheckInButton.swift in Sources */,
+				184133752FE131F195CBC58A /* CommunityTemplatesView.swift in Sources */,
 				802EBBE7F964D770ABC3C3D7 /* DatabaseService.swift in Sources */,
 				D4104D3DE09F55A2BF52679F /* EveningCheckInView.swift in Sources */,
 				0BD49D5964CB0961BECFA0EB /* InsightCard.swift in Sources */,
@@ -306,9 +324,11 @@
 				1D42735F7C71BFE49148E38E /* Intention.swift in Sources */,
 				ED695AC0E199F2FF419B85AE /* IntentionCard.swift in Sources */,
 				70FD29CF2F3069B63FBB89A3 /* IntentionInputView.swift in Sources */,
+				B6A3209EF22BA8348E139DAB /* IntentionTemplate.swift in Sources */,
 				0766C0F35AF9902EA5F88CEB /* MainTabView.swift in Sources */,
 				E673F7CA695C720E433078D5 /* MorningIntentionView.swift in Sources */,
 				790EE758A43B2D498611B8A2 /* RitualApp.swift in Sources */,
+				A70BC060774CD36CDF09E7AC /* Streak.swift in Sources */,
 				742A44044DEC37FF1E058A08 /* Theme.swift in Sources */,
 				76A7C7A44FF866A3ECB24FE1 /* TimelineView.swift in Sources */,
 				D4A5DF8AB5A849D47FF326A2 /* TimelineViewModel.swift in Sources */,
