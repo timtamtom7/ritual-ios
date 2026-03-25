@@ -49,6 +49,8 @@ targets:
         product: SQLite
       - framework: HealthKit.framework
         embed: false
+      - framework: MultipeerConnectivity.framework
+        embed: false
 
   RitualMac:
     type: application

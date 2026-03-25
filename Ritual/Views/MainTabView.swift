@@ -48,10 +48,18 @@ struct AdaptiveMainView: View {
                 Button {
                     withAnimation { selectedTab = 3 }
                 } label: {
-                    Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
+                    Label("Community", systemImage: "person.3.fill")
                         .foregroundColor(selectedTab == 3 ? Theme.goldPrimary : Theme.textPrimary)
                 }
                 .listRowBackground(selectedTab == 3 ? Theme.goldPrimary.opacity(0.1) : Color.clear)
+
+                Button {
+                    withAnimation { selectedTab = 4 }
+                } label: {
+                    Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
+                        .foregroundColor(selectedTab == 4 ? Theme.goldPrimary : Theme.textPrimary)
+                }
+                .listRowBackground(selectedTab == 4 ? Theme.goldPrimary.opacity(0.1) : Color.clear)
             }
             .listStyle(.sidebar)
             .navigationTitle("Ritual")
@@ -77,6 +85,10 @@ struct AdaptiveMainView: View {
                 .navigationTitle("Templates")
                 .navigationBarTitleDisplayMode(.large)
         case 3:
+            GroupRitualView()
+                .navigationTitle("Community")
+                .navigationBarTitleDisplayMode(.large)
+        case 4:
             InsightsView()
                 .navigationTitle("Insights")
                 .navigationBarTitleDisplayMode(.large)
@@ -110,6 +122,18 @@ struct MainTabView: View {
                     Label("Templates", systemImage: "square.grid.2x2")
                 }
                 .tag(2)
+
+            GroupRitualView()
+                .tabItem {
+                    Label("Community", systemImage: "person.3.fill")
+                }
+                .tag(3)
+
+            InsightsView()
+                .tabItem {
+                    Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
+                }
+                .tag(4)
 
             InsightsView()
                 .tabItem {
