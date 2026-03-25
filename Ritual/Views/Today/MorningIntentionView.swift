@@ -1,0 +1,113 @@
+import SwiftUI
+
+struct MorningIntentionView: View {
+    let onComplete: (String) -> Void
+    let onDismiss: () -> Void
+
+    @State private var currentStep: Int = 0
+    @State private var intentionText: String = ""
+    @State private var breathingPhase: Int = 0
+
+    private let breathingCount = 3
+    private let breathDuration: Double = 4.0
+
+    var body: some View {
+        VStack(spacing: Theme.spacingL) {
+            if currentStep == 0 {
+                settlingView
+            } else {
+                intentionInputView
+            }
+        }
+        .animation(.easeInOut(duration: 0.6), value: currentStep)
+    }
+
+    private var settlingView: some View {
+        VStack(spacing: Theme.spacingL) {
+            Spacer()
+
+            Text("Take a moment to arrive")
+                .font(.system(size: 28, weight: .regular, design: .serif))
+                .foregroundColor(Theme.textPrimary)
+                .multilineTextAlignment(.center)
+
+            Text("Three breaths to settle in")
+                .font(.system(size: 17))
+                .foregroundColor(Theme.textSecondary)
+
+            BreathingCircleView(phase: currentBreathingPhase)
+                .frame(height: 320)
+                .padding(.vertical, Theme.spacingL)
+
+            Text("Breath \(breathingPhase + 1) of \(breathingCount)")
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textMuted)
+
+            Spacer()
+
+            Button(action: { currentStep = 1 }) {
+                Text("Skip")
+                    .font(.system(size: 15))
+                    .foregroundColor(Theme.textMuted)
+            }
+            .padding(.bottom, Theme.spacingM)
+        }
+        .onAppear {
+            startBreathingGuide()
+        }
+    }
+
+    private var intentionInputView: some View {
+        VStack(spacing: Theme.spacingL) {
+            Text("What is your intention for today?")
+                .font(.system(size: 24, weight: .regular, design: .serif))
+                .foregroundColor(Theme.textPrimary)
+                .multilineTextAlignment(.center)
+                .padding(.top, Theme.spacingXL)
+
+            Spacer()
+
+            IntentionInputView(
+                text: $intentionText,
+                onSubmit: {
+                    if !intentionText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        onComplete(intentionText.trimmingCharacters(in: .whitespacesAndNewlines))
+                    }
+                }
+            )
+
+            Spacer()
+        }
+    }
+
+    private var currentBreathingPhase: BreathingPhase {
+        let phaseInCycle = breathingPhase % 4
+        switch phaseInCycle {
+        case 0: return .inhale
+        case 1: return .holdIn
+        case 2: return .exhale
+        case 3: return .holdOut
+        default: return .idle
+        }
+    }
+
+    private func startBreathingGuide() {
+        Timer.scheduledTimer(withTimeInterval: breathDuration, repeats: true) { timer in
+            if currentStep != 0 {
+                timer.invalidate()
+                return
+            }
+
+            withAnimation(.easeInOut(duration: 0.3)) {
+                breathingPhase += 1
+            }
+
+            if breathingPhase >= breathingCount * 4 {
+                timer.invalidate()
+                withAnimation {
+                    currentStep = 1
+                }
+            }
+        }
+    }
+}
