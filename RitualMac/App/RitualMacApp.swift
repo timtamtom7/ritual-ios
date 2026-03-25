@@ -1,9 +1,7 @@
 import SwiftUI
 
 @main
-struct RitualApp: App {
-    @StateObject private var todayViewModel = TodayViewModel()
-
+struct RitualMacApp: App {
     init() {
         Task {
             _ = await CalendarService.shared.requestAccess()
@@ -13,9 +11,11 @@ struct RitualApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AdaptiveMainView()
-                .environmentObject(todayViewModel)
+            MacMainView()
                 .preferredColorScheme(.dark)
+                .frame(minWidth: 800, minHeight: 600)
         }
+        .windowStyle(.hiddenTitleBar)
+        .defaultSize(width: 1000, height: 700)
     }
 }

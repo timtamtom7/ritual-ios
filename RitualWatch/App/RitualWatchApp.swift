@@ -16,12 +16,20 @@ struct WatchHomeView: View {
     @State private var currentPhase: BreathingPhase = .idle
     @State private var timeRemaining: Int = 3
     @State private var sessionComplete = false
+    @State private var showIntentionSheet = false
+    @State private var showCheckInSheet = false
+    @State private var currentIntentionText: String = ""
+
+    private let userDefaults = UserDefaults.standard
+    private let intentionKey = "watch_intention_text"
+    private let intentionDateKey = "watch_intention_date"
+    private let checkInKey = "watch_checkin_done"
 
     var body: some View {
         NavigationStack {
             if isBreathing {
                 BreathingWatchView(
-                    pattern: selectedPattern,
+                    selectedPattern: $selectedPattern,
                     isBreathing: $isBreathing,
                     currentPhase: $currentPhase,
                     timeRemaining: $timeRemaining,
@@ -33,14 +41,35 @@ struct WatchHomeView: View {
                     WKInterfaceDevice.current().play(.success)
                 })
             } else {
-                patternSelectionView
+                homeView
+            }
+        }
+        .onAppear {
+            loadSavedIntention()
+        }
+        .sheet(isPresented: $showIntentionSheet) {
+            WatchIntentionSheet(intentionText: $currentIntentionText) {
+                saveIntention()
+                showIntentionSheet = false
+            }
+        }
+        .sheet(isPresented: $showCheckInSheet) {
+            WatchCheckInSheet(intentionText: currentIntentionText) { acted in
+                saveCheckIn(acted: acted)
+                showCheckInSheet = false
             }
         }
     }
 
-    private var patternSelectionView: some View {
+    private var homeView: some View {
         ScrollView {
             VStack(spacing: 12) {
+                // Intention card
+                intentionCard
+
+                // Quick actions
+                actionButtons
+
                 Text("Choose Your Breath")
                     .font(.headline)
                     .foregroundColor(.gold)
@@ -84,6 +113,108 @@ struct WatchHomeView: View {
         .navigationTitle("Ritual")
     }
 
+    private var intentionCard: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if currentIntentionText.isEmpty {
+                Button {
+                    showIntentionSheet = true
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Set Today's Intention")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                        Text("Tap to set an intention")
+                            .font(.system(.callout, design: .rounded))
+                            .fontWeight(.medium)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .buttonStyle(.bordered)
+                .tint(.gold.opacity(0.6))
+            } else if hasCheckedIn {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                    Text(currentIntentionText)
+                        .font(.caption)
+                        .lineLimit(2)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                Button {
+                    showCheckInSheet = true
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Today's Intention")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                        Text(currentIntentionText)
+                            .font(.system(.callout, design: .rounded))
+                            .fontWeight(.medium)
+                            .lineLimit(2)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .buttonStyle(.bordered)
+                .tint(.gold)
+            }
+        }
+        .padding(8)
+        .background(Color.gold.opacity(0.1))
+        .cornerRadius(8)
+    }
+
+    private var actionButtons: some View {
+        HStack(spacing: 8) {
+            if !currentIntentionText.isEmpty && !hasCheckedIn {
+                Button {
+                    showCheckInSheet = true
+                } label: {
+                    Label("Check In", systemImage: "checkmark.circle")
+                        .font(.caption)
+                }
+                .buttonStyle(.bordered)
+                .tint(.green)
+            }
+
+            Button {
+                showIntentionSheet = true
+            } label: {
+                Label("Intention", systemImage: "text.bubble")
+                    .font(.caption)
+            }
+            .buttonStyle(.bordered)
+            .tint(.gold.opacity(0.8))
+        }
+    }
+
+    private var hasCheckedIn: Bool {
+        guard let dateString = userDefaults.string(forKey: intentionDateKey),
+              let date = ISO8601DateFormatter().date(from: dateString),
+              Calendar.current.isDateInToday(date) else {
+            return userDefaults.bool(forKey: checkInKey)
+        }
+        return Calendar.current.isDateInToday(date) && userDefaults.bool(forKey: checkInKey)
+    }
+
+    private func loadSavedIntention() {
+        if let text = userDefaults.string(forKey: intentionKey) {
+            currentIntentionText = text
+        }
+    }
+
+    private func saveIntention() {
+        userDefaults.set(currentIntentionText, forKey: intentionKey)
+        userDefaults.set(ISO8601DateFormatter().string(from: Date()), forKey: intentionDateKey)
+        userDefaults.set(false, forKey: checkInKey)
+        WKInterfaceDevice.current().play(.notification)
+    }
+
+    private func saveCheckIn(acted: Bool) {
+        userDefaults.set(true, forKey: checkInKey)
+        WKInterfaceDevice.current().play(acted ? .success : .retry)
+    }
+
     private func startSession() {
         isBreathing = true
         currentPhase = .idle
@@ -91,252 +222,96 @@ struct WatchHomeView: View {
     }
 }
 
-// MARK: - Breathing Watch View
+// MARK: - Watch Intention Sheet
 
-struct BreathingWatchView: View {
-    let pattern: BreathingPattern
-    @Binding var isBreathing: Bool
-    @Binding var currentPhase: BreathingPhase
-    @Binding var timeRemaining: Int
-    @Binding var sessionComplete: Bool
-
-    @State private var isPaused = false
-    @State private var loopCount = 0
-    @State private var phaseIndex = 0
-    @State private var timer: Timer?
-
-    private let goldColor = Color(red: 0.788, green: 0.663, blue: 0.431)
+struct WatchIntentionSheet: View {
+    @Binding var intentionText: String
+    let onSave: () -> Void
+    @State private var text: String = ""
+    @FocusState private var isFocused: Bool
 
     var body: some View {
-        VStack(spacing: 8) {
-            // Phase display
-            Text(currentPhase.rawValue)
-                .font(.system(.title3, design: .rounded))
-                .fontWeight(.medium)
-                .foregroundColor(goldColor)
-                .animation(.easeInOut(duration: 0.3), value: currentPhase)
+        ScrollView {
+            VStack(spacing: 12) {
+                Text("Today's Intention")
+                    .font(.headline)
+                    .foregroundColor(.gold)
 
-            // Circle animation
-            ZStack {
-                Circle()
-                    .stroke(Color.secondary.opacity(0.3), lineWidth: 4)
-                    .frame(width: 80, height: 80)
+                TextField("I intend to...", text: $text)
+                    .font(.system(.body, design: .rounded))
+                    .focused($isFocused)
+                    .onAppear { isFocused = true }
 
-                Circle()
-                    .trim(from: 0, to: circleScale)
-                    .stroke(goldColor, style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                    .frame(width: 80, height: 80)
-                    .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut(duration: 0.5), value: circleScale)
+                Button("Save") {
+                    intentionText = text
+                    onSave()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.gold)
+                .disabled(text.isEmpty)
 
-                Text("\(timeRemaining)")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
-            }
-
-            // Loop counter
-            Text("Loop \(loopCount)")
-                .font(.caption2)
-                .foregroundColor(.secondary)
-
-            // Controls
-            HStack(spacing: 16) {
-                Button {
-                    if isPaused {
-                        resumeSession()
-                    } else {
-                        pauseSession()
-                    }
-                } label: {
-                    Image(systemName: isPaused ? "play.fill" : "pause.fill")
+                Button("Cancel", role: .cancel) {
+                    onSave()
                 }
                 .buttonStyle(.bordered)
+            }
+            .padding()
+        }
+        .onChange(of: text) { _, newValue in
+            intentionText = newValue
+        }
+    }
+}
+
+// MARK: - Watch Check-In Sheet
+
+struct WatchCheckInSheet: View {
+    let intentionText: String
+    let onCheckIn: (Bool) -> Void
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 12) {
+                Text("Check In")
+                    .font(.headline)
+                    .foregroundColor(.gold)
+
+                Text("Did you act on your intention?")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+
+                Text("\"\(intentionText)\"")
+                    .font(.caption2)
+                    .italic()
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 8)
 
                 Button {
-                    stopSession()
+                    onCheckIn(true)
                 } label: {
-                    Image(systemName: "stop.fill")
+                    Label("Yes, I did", systemImage: "checkmark.circle.fill")
+                        .font(.callout)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.green)
+
+                Button {
+                    onCheckIn(false)
+                } label: {
+                    Label("Not today", systemImage: "xmark.circle")
+                        .font(.callout)
                 }
                 .buttonStyle(.bordered)
                 .tint(.red)
+
+                Button("Skip", role: .cancel) {
+                    onCheckIn(false)
+                }
+                .buttonStyle(.bordered)
             }
-            .padding(.top, 4)
-        }
-        .padding()
-        .onAppear {
-            startPhaseLoop()
-        }
-        .onDisappear {
-            timer?.invalidate()
+            .padding()
         }
     }
-
-    private var circleScale: CGFloat {
-        switch currentPhase {
-        case .inhale: return 1.0
-        case .holdIn: return 1.0
-        case .exhale: return 0.5
-        case .holdOut: return 0.5
-        default: return 0.7
-        }
-    }
-
-    private func startPhaseLoop() {
-        runNextPhase()
-    }
-
-    private func runNextPhase() {
-        guard !isPaused else { return }
-
-        let phases = pattern.phases
-        if phaseIndex >= phases.count {
-            phaseIndex = 0
-            loopCount += 1
-        }
-
-        let phase = phases[phaseIndex]
-
-        // Determine BreathingPhase
-        switch phase.name {
-        case "Breathe In": currentPhase = .inhale
-        case "Hold": currentPhase = phaseIndex == 1 ? .holdIn : .holdOut
-        case "Breathe Out": currentPhase = .exhale
-        default: currentPhase = .idle
-        }
-
-        // Play haptic
-        WKInterfaceDevice.current().play(.click)
-        playPhaseHaptic()
-
-        // Countdown timer
-        var remaining = Int(phase.duration)
-        timeRemaining = remaining
-
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { t in
-            remaining -= 1
-            timeRemaining = remaining
-            if remaining <= 0 {
-                t.invalidate()
-                phaseIndex += 1
-                runNextPhase()
-            }
-        }
-    }
-
-    private func playPhaseHaptic() {
-        switch currentPhase {
-        case .inhale:
-            WKInterfaceDevice.current().play(.click)
-        case .exhale:
-            WKInterfaceDevice.current().play(.click)
-        case .holdIn, .holdOut:
-            WKInterfaceDevice.current().play(.start)
-        default:
-            break
-        }
-    }
-
-    private func pauseSession() {
-        isPaused = true
-        timer?.invalidate()
-        WKInterfaceDevice.current().play(.pause)
-    }
-
-    private func resumeSession() {
-        isPaused = false
-        runNextPhase()
-    }
-
-    private func stopSession() {
-        timer?.invalidate()
-        isBreathing = false
-        WKInterfaceDevice.current().play(.stop)
-    }
-}
-
-// MARK: - Session Complete View
-
-struct SessionCompleteView: View {
-    let onDismiss: () -> Void
-
-    private let goldColor = Color(red: 0.788, green: 0.663, blue: 0.431)
-
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 48))
-                .foregroundColor(goldColor)
-
-            Text("Session Complete")
-                .font(.headline)
-                .foregroundColor(.primary)
-
-            Text("Well done.")
-                .font(.caption)
-                .foregroundColor(.secondary)
-
-            Button {
-                onDismiss()
-            } label: {
-                Text("Done")
-                    .font(.headline)
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(goldColor)
-        }
-        .padding()
-    }
-}
-
-// MARK: - Shared Models (duplicated for watchOS standalone)
-
-enum BreathingPattern: String, Codable, CaseIterable {
-    case box = "Box"
-    case calm = "Calm"
-    case energize = "Energize"
-    case coherent = "Coherent"
-    case extendedExhale = "Extended Exhale"
-    case sleep = "Sleep"
-    case custom = "Custom"
-
-    var description: String {
-        switch self {
-        case .box: return "4-4-4-4"
-        case .calm: return "4-7-8"
-        case .energize: return "6-0-6-0"
-        case .coherent: return "5-5"
-        case .extendedExhale: return "4-8"
-        case .sleep: return "4-7-8"
-        case .custom: return "Personal"
-        }
-    }
-
-    var phases: [(name: String, duration: Double)] {
-        switch self {
-        case .box:
-            return [("Breathe In", 4), ("Hold", 4), ("Breathe Out", 4), ("Hold", 4)]
-        case .calm:
-            return [("Breathe In", 4), ("Hold", 7), ("Breathe Out", 8)]
-        case .energize:
-            return [("Breathe In", 6), ("Breathe Out", 6)]
-        case .coherent:
-            return [("Breathe In", 5), ("Breathe Out", 5)]
-        case .extendedExhale:
-            return [("Breathe In", 4), ("Breathe Out", 8)]
-        case .sleep:
-            return [("Breathe In", 4), ("Hold", 7), ("Breathe Out", 8)]
-        case .custom:
-            return [("Breathe In", 4), ("Hold", 4), ("Breathe Out", 4), ("Hold", 4)]
-        }
-    }
-}
-
-enum BreathingPhase: String {
-    case inhale = "Breathe In"
-    case holdIn = "Hold In"
-    case exhale = "Breathe Out"
-    case holdOut = "Hold Out"
-    case paused = "Paused"
-    case idle = "Ready"
 }
