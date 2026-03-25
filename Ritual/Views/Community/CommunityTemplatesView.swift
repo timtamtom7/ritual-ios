@@ -4,6 +4,8 @@ struct CommunityTemplatesView: View {
     @State private var selectedCategory: String? = nil
     @State private var adoptedTemplate: IntentionTemplate?
     @State private var showAdoptedToast: Bool = false
+    @State private var showTemplateCreator: Bool = false
+    @State private var customTemplates: [CustomTemplate] = []
 
     private var categories: [String] {
         var cats = Set<String>()
@@ -15,6 +17,13 @@ struct CommunityTemplatesView: View {
 
     private var filteredTemplates: [IntentionTemplate] {
         IntentionTemplateStore.getTemplates(forCategory: selectedCategory)
+    }
+
+    private var filteredCustomTemplates: [CustomTemplate] {
+        if let cat = selectedCategory {
+            return customTemplates.filter { $0.category == cat }
+        }
+        return customTemplates
     }
 
     var body: some View {
@@ -30,6 +39,11 @@ struct CommunityTemplatesView: View {
 
                         templatesList
 
+                        // Custom Templates Section
+                        if !customTemplates.isEmpty {
+                            customTemplatesSection
+                        }
+
                         Spacer()
                             .frame(height: Theme.spacingL)
                     }
@@ -42,11 +56,29 @@ struct CommunityTemplatesView: View {
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(Theme.background, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showTemplateCreator = true }) {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 18))
+                            .foregroundColor(Theme.goldPrimary)
+                    }
+                }
+            }
             .overlay(alignment: .bottom) {
                 if showAdoptedToast, let template = adoptedTemplate {
                     adoptedToast(for: template)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
+            }
+            .sheet(isPresented: $showTemplateCreator) {
+                TemplateCreatorView()
+                    .onDisappear {
+                        loadCustomTemplates()
+                    }
+            }
+            .onAppear {
+                loadCustomTemplates()
             }
         }
     }
@@ -92,6 +124,37 @@ struct CommunityTemplatesView: View {
         }
     }
 
+    private var customTemplatesSection: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingM) {
+            HStack {
+                Text("My Templates")
+                    .font(.system(size: 17, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+
+                Spacer()
+
+                Text("\(filteredCustomTemplates.count)")
+                    .font(.system(size: 13))
+                    .foregroundColor(Theme.textMuted)
+            }
+            .padding(.top, Theme.spacingS)
+
+            VStack(spacing: Theme.spacingM) {
+                ForEach(filteredCustomTemplates) { template in
+                    CustomTemplateCard(template: template) {
+                        adoptCustomTemplate(template)
+                    } onDelete: {
+                        deleteCustomTemplate(template)
+                    }
+                }
+            }
+        }
+    }
+
+    private func loadCustomTemplates() {
+        customTemplates = DatabaseService.shared.getCustomTemplates()
+    }
+
     private func adoptTemplate(_ template: IntentionTemplate) {
         adoptedTemplate = template
         UIPasteboard.general.string = template.example
@@ -105,6 +168,25 @@ struct CommunityTemplatesView: View {
                 showAdoptedToast = false
             }
         }
+    }
+
+    private func adoptCustomTemplate(_ template: CustomTemplate) {
+        UIPasteboard.general.string = template.example
+
+        withAnimation {
+            showAdoptedToast = true
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            withAnimation {
+                showAdoptedToast = false
+            }
+        }
+    }
+
+    private func deleteCustomTemplate(_ template: CustomTemplate) {
+        DatabaseService.shared.deleteCustomTemplate(template.id)
+        loadCustomTemplates()
     }
 
     private func adoptedToast(for template: IntentionTemplate) -> some View {
@@ -215,5 +297,79 @@ struct TemplateCard: View {
             RoundedRectangle(cornerRadius: Theme.cardRadius)
                 .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
         )
+    }
+}
+
+struct CustomTemplateCard: View {
+    let template: CustomTemplate
+    let onAdopt: () -> Void
+    let onDelete: () -> Void
+
+    @State private var showDeleteConfirm: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack(spacing: Theme.spacingS) {
+                Image(systemName: template.icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                    .frame(width: 36, height: 36)
+                    .background(Theme.goldPrimary.opacity(0.1))
+                    .cornerRadius(10)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(template.title)
+                        .font(.system(size: 17, weight: .medium))
+                        .foregroundColor(Theme.textPrimary)
+
+                    Text(template.category)
+                        .font(.system(size: 12))
+                        .foregroundColor(Theme.textMuted)
+                }
+
+                Spacer()
+
+                Menu {
+                    Button(action: onAdopt) {
+                        Label("Use Template", systemImage: "plus.circle")
+                    }
+                    Button(role: .destructive, action: { showDeleteConfirm = true }) {
+                        Label("Delete", systemImage: "trash")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 16))
+                        .foregroundColor(Theme.textMuted)
+                }
+            }
+
+            if !template.description.isEmpty {
+                Text(template.description)
+                    .font(.system(size: 14))
+                    .foregroundColor(Theme.textSecondary)
+                    .lineLimit(2)
+            }
+
+            Text("\"\(template.example)\"")
+                .font(.system(size: 14, weight: .regular, design: .serif))
+                .foregroundColor(Theme.textMuted)
+                .italic()
+                .lineLimit(2)
+                .padding(.top, 4)
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
+        .confirmationDialog("Delete Template?", isPresented: $showDeleteConfirm, titleVisibility: .visible) {
+            Button("Delete", role: .destructive, action: onDelete)
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This cannot be undone.")
+        }
     }
 }

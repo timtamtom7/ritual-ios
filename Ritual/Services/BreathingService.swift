@@ -12,6 +12,7 @@ final class BreathingService: ObservableObject {
     @Published var currentPhase: BreathingPhase = .idle
     @Published var isRunning: Bool = false
     @Published var isPaused: Bool = false
+    @Published var currentAmbientSound: AmbientSound = .none
 
     private var phaseTimer: Timer?
     private var currentPattern: BreathingPattern = .box
@@ -19,6 +20,7 @@ final class BreathingService: ObservableObject {
     private var hapticEnabled: Bool = true
     private var currentSessionId: String?
     private let database = DatabaseService.shared
+    private let soundPlayer = AmbientSoundPlayer.shared
 
     var onPhaseChanged: ((BreathingPhase) -> Void)?
 
@@ -44,10 +46,11 @@ final class BreathingService: ObservableObject {
         }
     }
 
-    func startSession(pattern: BreathingPattern, durationMinutes: Int, hapticEnabled: Bool = true) {
+    func startSession(pattern: BreathingPattern, durationMinutes: Int, hapticEnabled: Bool = true, ambientSound: AmbientSound = .none) {
         self.currentPattern = pattern
         self.currentDuration = durationMinutes
         self.hapticEnabled = hapticEnabled
+        self.currentAmbientSound = ambientSound
         self.isRunning = true
         self.isPaused = false
 
@@ -61,6 +64,11 @@ final class BreathingService: ObservableObject {
         try? database.saveBreathingSession(session)
 
         try? engine?.start()
+
+        // Start ambient sound if selected
+        if ambientSound != .none {
+            soundPlayer.play(sound: ambientSound)
+        }
 
         let phases = pattern.phases
         var delay: TimeInterval = 0
@@ -148,6 +156,7 @@ final class BreathingService: ObservableObject {
         phaseTimer = nil
         currentSessionId = nil
         stopHaptic()
+        soundPlayer.fadeOut(duration: 0.5)
     }
 
     private func completeSession() {
@@ -161,6 +170,7 @@ final class BreathingService: ObservableObject {
         phaseTimer = nil
         currentSessionId = nil
         stopHaptic()
+        soundPlayer.fadeOut(duration: 1.5)
     }
 
     private func playHaptic(for phase: BreathingPhase, duration: Double) {

@@ -11,6 +11,7 @@ final class DatabaseService {
     private let intentions = Table("intentions")
     private let checkIns = Table("check_ins")
     private let breathingSessions = Table("breathing_sessions")
+    private let customTemplates = Table("custom_templates")
 
     // Intention columns
     private let id = SQLite.Expression<String>("id")
@@ -27,6 +28,12 @@ final class DatabaseService {
     private let pattern = SQLite.Expression<String>("pattern")
     private let durationSeconds = SQLite.Expression<Int>("duration_seconds")
     private let completed = SQLite.Expression<Bool>("completed")
+
+    // CustomTemplate columns
+    private let templateTitle = SQLite.Expression<String>("title")
+    private let templateCategory = SQLite.Expression<String>("category")
+    private let templateDescription = SQLite.Expression<String>("description")
+    private let templateExample = SQLite.Expression<String>("example")
 
     private let dateFormatter: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
@@ -69,6 +76,15 @@ final class DatabaseService {
             t.column(pattern)
             t.column(durationSeconds)
             t.column(completed)
+            t.column(createdAt)
+        })
+
+        try db?.run(customTemplates.create(ifNotExists: true) { t in
+            t.column(id, primaryKey: true)
+            t.column(templateTitle)
+            t.column(templateCategory)
+            t.column(templateDescription)
+            t.column(templateExample)
             t.column(createdAt)
         })
     }
@@ -425,5 +441,56 @@ final class DatabaseService {
 
     func getBreathingHistory() -> [BreathingSession] {
         return getBreathingSessions()
+    }
+
+    // MARK: - Custom Templates
+
+    func saveCustomTemplate(_ template: CustomTemplate) {
+        guard let db = db else { return }
+        do {
+            let insert = customTemplates.insert(
+                id <- template.id,
+                templateTitle <- template.title,
+                templateCategory <- template.category,
+                templateDescription <- template.description,
+                templateExample <- template.example,
+                createdAt <- dateFormatter.string(from: template.createdAt)
+            )
+            try db.run(insert)
+        } catch {
+            print("Error saving custom template: \(error)")
+        }
+    }
+
+    func getCustomTemplates() -> [CustomTemplate] {
+        guard let db = db else { return [] }
+        var result: [CustomTemplate] = []
+        do {
+            for row in try db.prepare(customTemplates.order(createdAt.desc)) {
+                if let date = dateFormatter.date(from: row[createdAt]) {
+                    result.append(CustomTemplate(
+                        id: row[id],
+                        title: row[templateTitle],
+                        category: row[templateCategory],
+                        description: row[templateDescription],
+                        example: row[templateExample],
+                        createdAt: date
+                    ))
+                }
+            }
+        } catch {
+            print("Error fetching custom templates: \(error)")
+        }
+        return result
+    }
+
+    func deleteCustomTemplate(_ templateId: String) {
+        guard let db = db else { return }
+        do {
+            let query = customTemplates.filter(id == templateId)
+            try db.run(query.delete())
+        } catch {
+            print("Error deleting custom template: \(error)")
+        }
     }
 }

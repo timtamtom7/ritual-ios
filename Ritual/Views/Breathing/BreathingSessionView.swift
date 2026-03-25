@@ -6,6 +6,7 @@ struct BreathingSessionView: View {
 
     @State private var selectedPattern: BreathingPattern = .box
     @State private var selectedDuration: Int = 3
+    @State private var selectedAmbientSound: AmbientSound = .none
     @State private var isSessionActive: Bool = false
     @State private var showHistory: Bool = false
 
@@ -30,77 +31,101 @@ struct BreathingSessionView: View {
     }
 
     private var setupView: some View {
-        VStack(spacing: Theme.spacingXL) {
-            HStack {
-                Button(action: { dismiss() }) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 18, weight: .medium))
+        ScrollView {
+            VStack(spacing: Theme.spacingXL) {
+                HStack {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 18, weight: .medium))
+                            .foregroundColor(Theme.textMuted)
+                    }
+                    Spacer()
+                    Button(action: { showHistory = true }) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.system(size: 16))
+                            .foregroundColor(Theme.goldMuted)
+                    }
+                }
+                .padding(.horizontal, Theme.spacingM)
+                .padding(.top, Theme.spacingS)
+
+                Spacer().frame(height: Theme.spacingS)
+
+                Text("Breathe")
+                    .font(.system(size: 48, weight: .light, design: .serif))
+                    .foregroundColor(Theme.textPrimary)
+
+                // Adaptive suggestion
+                AdaptiveBreathingHint()
+
+                VStack(spacing: Theme.spacingS) {
+                    Text("Select your pattern")
+                        .font(.system(size: 14))
                         .foregroundColor(Theme.textMuted)
-                }
-                Spacer()
-                Button(action: { showHistory = true }) {
-                    Image(systemName: "clock.arrow.circlepath")
-                        .font(.system(size: 16))
-                        .foregroundColor(Theme.goldMuted)
-                }
-            }
-            .padding(.horizontal, Theme.spacingM)
 
-            Spacer()
-
-            Text("Breathe")
-                .font(.system(size: 48, weight: .light, design: .serif))
-                .foregroundColor(Theme.textPrimary)
-
-            // Adaptive suggestion
-            AdaptiveBreathingHint()
-
-            VStack(spacing: Theme.spacingS) {
-                Text("Select your pattern")
-                    .font(.system(size: 14))
-                    .foregroundColor(Theme.textMuted)
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: Theme.spacingS) {
-                        ForEach(BreathingPattern.allCases, id: \.self) { pattern in
-                            PatternButton(
-                                title: pattern.rawValue,
-                                subtitle: pattern.suggestedTime,
-                                isSelected: selectedPattern == pattern
-                            ) {
-                                selectedPattern = pattern
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: Theme.spacingS) {
+                            ForEach(BreathingPattern.allCases, id: \.self) { pattern in
+                                PatternButton(
+                                    title: pattern.rawValue,
+                                    subtitle: pattern.suggestedTime,
+                                    isSelected: selectedPattern == pattern
+                                ) {
+                                    selectedPattern = pattern
+                                }
+                                .frame(width: 90)
                             }
-                            .frame(width: 80)
                         }
-                    }
-                    .padding(.horizontal, Theme.spacingM)
-                }
-            }
-
-            VStack(spacing: Theme.spacingS) {
-                Text("Duration")
-                    .font(.system(size: 14))
-                    .foregroundColor(Theme.textMuted)
-
-                HStack(spacing: Theme.spacingS) {
-                    ForEach(durations, id: \.self) { duration in
-                        DurationButton(
-                            minutes: duration,
-                            isSelected: selectedDuration == duration
-                        ) {
-                            selectedDuration = duration
-                        }
+                        .padding(.horizontal, Theme.spacingM)
                     }
                 }
-            }
 
-            Spacer()
+                VStack(spacing: Theme.spacingS) {
+                    Text("Duration")
+                        .font(.system(size: 14))
+                        .foregroundColor(Theme.textMuted)
 
-            PrimaryButton(title: "Begin") {
-                startSession()
+                    HStack(spacing: Theme.spacingS) {
+                        ForEach(durations, id: \.self) { duration in
+                            DurationButton(
+                                minutes: duration,
+                                isSelected: selectedDuration == duration
+                            ) {
+                                selectedDuration = duration
+                            }
+                        }
+                    }
+                }
+
+                // Ambient Sound Selector
+                VStack(spacing: Theme.spacingS) {
+                    Text("Ambient Sound")
+                        .font(.system(size: 14))
+                        .foregroundColor(Theme.textMuted)
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: Theme.spacingS) {
+                            ForEach(AmbientSound.allCases) { sound in
+                                AmbientSoundButton(
+                                    sound: sound,
+                                    isSelected: selectedAmbientSound == sound
+                                ) {
+                                    selectedAmbientSound = sound
+                                }
+                            }
+                        }
+                        .padding(.horizontal, Theme.spacingM)
+                    }
+                }
+
+                Spacer().frame(height: Theme.spacingL)
+
+                PrimaryButton(title: "Begin") {
+                    startSession()
+                }
+                .padding(.horizontal, Theme.spacingM)
+                .padding(.bottom, Theme.spacingXL)
             }
-            .padding(.horizontal, Theme.spacingM)
-            .padding(.bottom, Theme.spacingXL)
         }
     }
 
@@ -152,7 +177,7 @@ struct BreathingSessionView: View {
 
     private func startSession() {
         isSessionActive = true
-        breathingService.startSession(pattern: selectedPattern, durationMinutes: selectedDuration, hapticEnabled: true)
+        breathingService.startSession(pattern: selectedPattern, durationMinutes: selectedDuration, hapticEnabled: true, ambientSound: selectedAmbientSound)
     }
 
     private func togglePause() {
@@ -359,6 +384,32 @@ struct DurationButton: View {
                     RoundedRectangle(cornerRadius: Theme.buttonRadius)
                         .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
                 )
+        }
+    }
+}
+
+struct AmbientSoundButton: View {
+    let sound: AmbientSound
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: sound.icon)
+                    .font(.system(size: 16))
+                Text(sound.rawValue)
+                    .font(.system(size: 11, weight: .medium))
+                    .lineLimit(1)
+            }
+            .foregroundColor(isSelected ? Theme.background : Theme.textSecondary)
+            .frame(width: 64, height: 56)
+            .background(isSelected ? Theme.goldPrimary : Theme.surface)
+            .cornerRadius(Theme.buttonRadius)
+            .overlay(
+                RoundedRectangle(cornerRadius: Theme.buttonRadius)
+                    .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
+            )
         }
     }
 }
