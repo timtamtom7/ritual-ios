@@ -87,6 +87,27 @@ struct InsightsView: View {
                         .padding(.horizontal, Theme.spacingM)
                 }
 
+                // R7: Seasonal Theme Banner
+                SeasonalBanner(seasonTheme: viewModel.seasonalTheme)
+                    .padding(.horizontal, Theme.spacingM)
+
+                // R7: Monthly Narrative
+                if let narrative = viewModel.monthlyNarrative {
+                    MonthlyNarrativeCard(narrative: narrative)
+                        .padding(.horizontal, Theme.spacingM)
+                }
+
+                // R7: HealthKit Sleep Correlation
+                if viewModel.healthKitAvailable {
+                    if viewModel.isLoadingHealthKit {
+                        HealthKitLoadingCard()
+                            .padding(.horizontal, Theme.spacingM)
+                    } else if let report = viewModel.sleepCorrelationReport {
+                        HealthKitSleepCorrelationCard(report: report)
+                            .padding(.horizontal, Theme.spacingM)
+                    }
+                }
+
                 // R4: AI Narrative Insights
                 if !viewModel.narrativeInsights.isEmpty {
                     VStack(alignment: .leading, spacing: Theme.spacingS) {
@@ -297,6 +318,283 @@ struct MonthlyThemeCard: View {
         .overlay(
             RoundedRectangle(cornerRadius: Theme.cardRadius)
                 .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// R7: Seasonal Banner
+struct SeasonalBanner: View {
+    let seasonTheme: String
+    @State private var season: RitualSeason = SeasonService.shared.currentSeason
+
+    var body: some View {
+        HStack(spacing: Theme.spacingM) {
+            Image(systemName: season.icon)
+                .font(.system(size: 32))
+                .foregroundColor(Theme.goldPrimary)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(season.rawValue)
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(Theme.textMuted)
+
+                Text(seasonTheme)
+                    .font(.system(size: 17, weight: .medium, design: .serif))
+                    .foregroundColor(Theme.goldGlow)
+            }
+
+            Spacer()
+
+            VStack(alignment: .trailing, spacing: 2) {
+                Text("\(SeasonService.shared.daysUntilNextSeason()) days")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundColor(Theme.textMuted)
+                Text("until next season")
+                    .font(.system(size: 11))
+                    .foregroundColor(Theme.textMuted)
+            }
+        }
+        .padding(Theme.spacingM)
+        .background(
+            LinearGradient(
+                colors: [Theme.goldPrimary.opacity(0.15), Theme.surface],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldPrimary.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// R7: Monthly Narrative Card
+struct MonthlyNarrativeCard: View {
+    let narrative: MonthlyNarrative
+    @State private var isExpanded: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: "book.closed.fill")
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text("\(narrative.monthName) Ritual Report")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+                Spacer()
+                if narrative.rateChangeVsLastMonth > 0 {
+                    HStack(spacing: 2) {
+                        Image(systemName: "arrow.up.right")
+                            .font(.system(size: 10, weight: .bold))
+                        Text("\(Int(narrative.rateChangeVsLastMonth * 100))%")
+                            .font(.system(size: 12, weight: .medium))
+                    }
+                    .foregroundColor(Theme.success)
+                } else if narrative.rateChangeVsLastMonth < -0 {
+                    HStack(spacing: 2) {
+                        Image(systemName: "arrow.down.right")
+                            .font(.system(size: 10, weight: .bold))
+                        Text("\(Int(abs(narrative.rateChangeVsLastMonth) * 100))%")
+                            .font(.system(size: 12, weight: .medium))
+                    }
+                    .foregroundColor(Theme.warning)
+                }
+            }
+
+            Text(narrative.openingParagraph)
+                .font(.system(size: 14, design: .serif))
+                .foregroundColor(Theme.textSecondary)
+                .italic()
+
+            // Stats row
+            HStack(spacing: Theme.spacingM) {
+                VStack(spacing: 2) {
+                    Text("\(narrative.totalIntentions)")
+                        .font(.system(size: 20, weight: .light, design: .serif))
+                        .foregroundColor(Theme.textPrimary)
+                    Text("intentions")
+                        .font(.system(size: 11))
+                        .foregroundColor(Theme.textMuted)
+                }
+                VStack(spacing: 2) {
+                    Text("\(Int(narrative.successRate * 100))%")
+                        .font(.system(size: 20, weight: .light, design: .serif))
+                        .foregroundColor(Theme.textPrimary)
+                    Text("follow-through")
+                        .font(.system(size: 11))
+                        .foregroundColor(Theme.textMuted)
+                }
+                VStack(spacing: 2) {
+                    Text("\(narrative.uniquePracticeDays)")
+                        .font(.system(size: 20, weight: .light, design: .serif))
+                        .foregroundColor(Theme.textPrimary)
+                    Text("practice days")
+                        .font(.system(size: 11))
+                        .foregroundColor(Theme.textMuted)
+                }
+                VStack(spacing: 2) {
+                    Text("\(narrative.breathingMinutesTotal)")
+                        .font(.system(size: 20, weight: .light, design: .serif))
+                        .foregroundColor(Theme.textPrimary)
+                    Text("breath mins")
+                        .font(.system(size: 11))
+                        .foregroundColor(Theme.textMuted)
+                }
+            }
+            .frame(maxWidth: .infinity)
+
+            if !isExpanded {
+                Button(action: { withAnimation { isExpanded = true } }) {
+                    HStack {
+                        Text("Read full report")
+                            .font(.system(size: 13))
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 11))
+                    }
+                    .foregroundColor(Theme.goldPrimary)
+                }
+                .padding(.top, Theme.spacingXS)
+            } else {
+                VStack(alignment: .leading, spacing: Theme.spacingS) {
+                    Divider()
+                        .background(Theme.goldMuted.opacity(0.3))
+
+                    Text(narrative.categoryParagraph)
+                        .font(.system(size: 14))
+                        .foregroundColor(Theme.textSecondary)
+
+                    Text(narrative.breathParagraph)
+                        .font(.system(size: 14))
+                        .foregroundColor(Theme.textSecondary)
+
+                    Text(narrative.changeParagraph)
+                        .font(.system(size: 14))
+                        .foregroundColor(Theme.textSecondary)
+
+                    Text(narrative.seasonalParagraph)
+                        .font(.system(size: 14, design: .serif))
+                        .foregroundColor(Theme.goldMuted)
+                        .italic()
+                }
+                .padding(.top, Theme.spacingXS)
+
+                Button(action: { withAnimation { isExpanded = false } }) {
+                    HStack {
+                        Text("Collapse")
+                            .font(.system(size: 13))
+                        Image(systemName: "chevron.up")
+                            .font(.system(size: 11))
+                    }
+                    .foregroundColor(Theme.goldPrimary)
+                }
+                .padding(.top, Theme.spacingXS)
+            }
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldPrimary.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// R7: HealthKit Loading Card
+struct HealthKitLoadingCard: View {
+    var body: some View {
+        HStack(spacing: Theme.spacingM) {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: Theme.goldPrimary))
+                .scaleEffect(0.8)
+            Text("Analyzing sleep patterns...")
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textMuted)
+            Spacer()
+        }
+        .padding(Theme.spacingM)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// R7: HealthKit Sleep Correlation Card
+struct HealthKitSleepCorrelationCard: View {
+    let report: SleepCorrelationReport
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: Theme.spacingS) {
+            HStack {
+                Image(systemName: report.strength.icon)
+                    .font(.system(size: 16))
+                    .foregroundColor(Theme.goldPrimary)
+                Text("Sleep → Intention Link")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundColor(Theme.textPrimary)
+                Spacer()
+                Text(report.strength.label)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundColor(Theme.goldMuted)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(Theme.goldPrimary.opacity(0.1))
+                    .cornerRadius(8)
+            }
+
+            Text(report.headline)
+                .font(.system(size: 15, weight: .medium, design: .serif))
+                .foregroundColor(Theme.goldGlow)
+
+            Text(report.body)
+                .font(.system(size: 14))
+                .foregroundColor(Theme.textSecondary)
+
+            if let avgSleep = report.weeklyAverageSleep {
+                HStack(spacing: Theme.spacingM) {
+                    VStack(spacing: 2) {
+                        Text(String(format: "%.1f", avgSleep))
+                            .font(.system(size: 18, weight: .light, design: .serif))
+                            .foregroundColor(Theme.textPrimary)
+                        Text("hrs avg sleep")
+                            .font(.system(size: 11))
+                            .foregroundColor(Theme.textMuted)
+                    }
+                    VStack(spacing: 2) {
+                        Text("\(Int(report.intentionSuccessRate * 100))%")
+                            .font(.system(size: 18, weight: .light, design: .serif))
+                            .foregroundColor(Theme.textPrimary)
+                        Text("intention success")
+                            .font(.system(size: 11))
+                            .foregroundColor(Theme.textMuted)
+                    }
+                    VStack(spacing: 2) {
+                        Text("\(report.daysAnalyzed)")
+                            .font(.system(size: 18, weight: .light, design: .serif))
+                            .foregroundColor(Theme.textPrimary)
+                        Text("days analyzed")
+                            .font(.system(size: 11))
+                            .foregroundColor(Theme.textMuted)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.top, Theme.spacingXS)
+            }
+        }
+        .padding(Theme.spacingM)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.surface)
+        .cornerRadius(Theme.cardRadius)
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius)
+                .stroke(Theme.goldPrimary.opacity(0.4), lineWidth: 1)
         )
     }
 }

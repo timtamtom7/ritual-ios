@@ -43,9 +43,16 @@ final class InsightsViewModel: ObservableObject {
     @Published var monthlyTheme: String?
     @Published var sleepCorrelation: SleepCorrelation?
     @Published var calendarConflict: CalendarConflictReport?
+    @Published var monthlyNarrative: MonthlyNarrative?
+    @Published var seasonalTheme: String = ""
+    @Published var sleepCorrelationReport: SleepCorrelationReport?
+    @Published var isLoadingHealthKit: Bool = false
+    @Published var healthKitAvailable: Bool = false
 
     private let database = DatabaseService.shared
     private let narrativeService = NarrativeService.shared
+    private let healthKitService = HealthKitService.shared
+    private let seasonService = SeasonService.shared
 
     init() {
         calculateInsights()
@@ -84,6 +91,27 @@ final class InsightsViewModel: ObservableObject {
 
         // R4: Calendar conflict detection
         calendarConflict = narrativeService.checkCalendarConflicts()
+
+        // R7: Seasonal theme
+        seasonalTheme = seasonService.seasonalTheme
+
+        // R7: Monthly narrative (show if we have at least 10 days of history)
+        if totalIntentions >= 5 {
+            monthlyNarrative = narrativeService.generateMonthlyNarrative()
+        }
+
+        // R7: HealthKit deep sleep correlation
+        healthKitAvailable = healthKitService.isHealthDataAvailable
+        if healthKitAvailable && totalIntentions >= 5 {
+            isLoadingHealthKit = true
+            Task {
+                let report = await healthKitService.analyzeSleepToIntentionCorrelation()
+                await MainActor.run {
+                    sleepCorrelationReport = report
+                    isLoadingHealthKit = false
+                }
+            }
+        }
 
         let grouped = database.getIntentionsGroupedByCategory()
         var categoryInsights: [CategoryInsight] = []

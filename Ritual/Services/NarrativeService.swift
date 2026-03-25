@@ -282,6 +282,158 @@ final class NarrativeService {
             body: "You have \"\(eventTitles.joined(separator: "\", \""))\" on your calendar today. These may affect your ability to act on today's intention."
         )
     }
+
+    /// R7: Generates a rich monthly ritual narrative
+    func generateMonthlyNarrative() -> MonthlyNarrative {
+        let calendar = Calendar.current
+        let now = Date()
+        let monthAgo = calendar.date(byAdding: .day, value: -30, to: now) ?? now
+        let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: now)) ?? now
+
+        let intentions = database.getIntentions().filter { $0.createdAt >= monthStart }
+        let allIntentions = database.getIntentions()
+
+        let season = SeasonService.shared.currentSeason
+
+        // Overall stats
+        let totalIntentions = intentions.count
+        var successfulIntentions = 0
+        for intention in intentions {
+            let checkIns = database.getCheckIns(forIntentionId: intention.id)
+            if checkIns.first?.acted == true { successfulIntentions += 1 }
+        }
+        let successRate = totalIntentions > 0 ? Double(successfulIntentions) / Double(totalIntentions) : 0
+
+        // Category breakdown
+        let categoryBreakdown = Dictionary(grouping: intentions) { $0.category ?? "Other" }
+            .mapValues { intentions -> (total: Int, successful: Int) in
+                var successes = 0
+                for intention in intentions {
+                    let checkIns = database.getCheckIns(forIntentionId: intention.id)
+                    if checkIns.first?.acted == true { successes += 1 }
+                }
+                return (intentions.count, successes)
+            }
+            .sorted { $0.value.total > $1.value.total }
+
+        // Breathing practice
+        let breathingSessions = database.getBreathingSessions().filter { $0.createdAt >= monthStart }
+        let completedBreathing = breathingSessions.filter { $0.completed }.count
+        let breathingMinutes = breathingSessions.reduce(0) { $0 + $1.durationSeconds } / 60
+
+        // Consistency
+        let uniqueDays = Set(intentions.map { calendar.startOfDay(for: $0.createdAt) }).count
+        let daysInMonth = calendar.ordinality(of: .day, in: .year, for: now) ?? 30
+
+        // Compare to previous month
+        let prevMonthStart = calendar.date(byAdding: .month, value: -1, to: monthStart) ?? monthStart
+        let prevMonthIntentions = allIntentions.filter { $0.createdAt >= prevMonthStart && $0.createdAt < monthStart }
+        var prevMonthSuccesses = 0
+        for intention in prevMonthIntentions {
+            let checkIns = database.getCheckIns(forIntentionId: intention.id)
+            if checkIns.first?.acted == true { prevMonthSuccesses += 1 }
+        }
+        let prevMonthRate = prevMonthIntentions.isEmpty ? 0 : Double(prevMonthSuccesses) / Double(prevMonthIntentions.count)
+        let rateChange = successRate - prevMonthRate
+
+        // Theme
+        let dominantCategory = categoryBreakdown.first.map { $0.key }
+
+        // Narrative paragraphs
+        var opening: String
+        if totalIntentions == 0 {
+            opening = "This month has been quiet on the ritual front — no intentions set yet. The practice is always available to you."
+        } else if successRate >= 0.8 {
+            opening = "This has been a month of deep alignment. \(totalIntentions) intentions set, \(Int(successRate * 100))% followed through. Your practice is maturing."
+        } else if successRate >= 0.5 {
+            opening = "This month brought \(totalIntentions) intentions and a \(Int(successRate * 100))% follow-through rate. You're building something real."
+        } else if totalIntentions > 0 {
+            opening = "This month you set \(totalIntentions) intentions. The rate of follow-through — \(Int(successRate * 100))% — tells a story worth reading."
+        } else {
+            opening = "Ritual continues, even in quiet months. Your practice is not gone, only resting."
+        }
+
+        var categoryStory: String
+        if let dominant = dominantCategory, categoryBreakdown.count > 0 {
+            let stats = categoryBreakdown.first!.value
+            let catRate = stats.total > 0 ? Double(stats.successful) / Double(stats.total) : 0
+            categoryStory = "Your \(dominant.lowercased()) intentions led the month, appearing \(stats.total) times with \(Int(catRate * 100))% success."
+
+            if categoryBreakdown.count > 1 {
+                let secondStats = categoryBreakdown[1].value
+                categoryStory += " \(categoryBreakdown[1].key.lowercased()) intentions (\(secondStats.total) total) followed."
+            }
+        } else {
+            categoryStory = "Your intentions were varied, spanning multiple life areas."
+        }
+
+        var breathStory: String
+        if breathingSessions.isEmpty {
+            breathStory = "Breathing sessions were absent this month. When you're ready, a single session can reset everything."
+        } else {
+            breathStory = "You completed \(completedBreathing) of \(breathingSessions.count) breathing sessions — \(breathingMinutes) minutes of conscious breath in total."
+        }
+
+        var changeStory: String
+        if rateChange > 0.1 {
+            changeStory = "Your follow-through improved by \(Int(rateChange * 100))% compared to last month. Something is working."
+        } else if rateChange < -0.1 {
+            changeStory = "Follow-through dropped \(Int(abs(rateChange) * 100))% versus last month. Consider what changed — environment, energy, or something else."
+        } else {
+            changeStory = "Consistency held steady across the month. Your practice is becoming predictable — which is a strength."
+        }
+
+        var seasonalStory: String
+        seasonalStory = "As \(season.rawValue.lowercased()) settles in — \(season.description) — let this season's theme of \(season.theme.lowercased()) guide next month's intentions."
+
+        let seasonSuggestions = season.suggestedIntentions.prefix(2).map { "\"\($0)\"" }.joined(separator: " or ")
+        seasonalStory += " Consider intentions like \(seasonSuggestions)."
+
+        return MonthlyNarrative(
+            month: calendar.component(.month, from: now),
+            year: calendar.component(.year, from: now),
+            season: season,
+            totalIntentions: totalIntentions,
+            successfulIntentions: successfulIntentions,
+            successRate: successRate,
+            rateChangeVsLastMonth: rateChange,
+            uniquePracticeDays: uniqueDays,
+            breathingSessionsCount: breathingSessions.count,
+            breathingMinutesTotal: breathingMinutes,
+            dominantCategory: dominantCategory,
+            openingParagraph: opening,
+            categoryParagraph: categoryStory,
+            breathParagraph: breathStory,
+            changeParagraph: changeStory,
+            seasonalParagraph: seasonalStory
+        )
+    }
+}
+
+struct MonthlyNarrative: Identifiable {
+    let id = UUID()
+    let month: Int
+    let year: Int
+    let season: RitualSeason
+    let totalIntentions: Int
+    let successfulIntentions: Int
+    let successRate: Double
+    let rateChangeVsLastMonth: Double
+    let uniquePracticeDays: Int
+    let breathingSessionsCount: Int
+    let breathingMinutesTotal: Int
+    let dominantCategory: String?
+    let openingParagraph: String
+    let categoryParagraph: String
+    let breathParagraph: String
+    let changeParagraph: String
+    let seasonalParagraph: String
+
+    var monthName: String {
+        let names = ["", "January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November", "December"]
+        return names[month]
+    }
 }
 
 struct SleepCorrelation {

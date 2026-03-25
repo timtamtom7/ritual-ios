@@ -3,6 +3,7 @@ import SwiftUI
 struct BreathingSessionView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var breathingService = BreathingService.shared
+    @StateObject private var energyService = EnergyService.shared
 
     @State private var selectedPattern: BreathingPattern = .box
     @State private var selectedDuration: Int = 3
@@ -62,6 +63,11 @@ struct BreathingSessionView: View {
                     Text("Select your pattern")
                         .font(.system(size: 14))
                         .foregroundColor(Theme.textMuted)
+                        .onAppear {
+                            energyService.update()
+                            selectedPattern = energyService.suggestedPattern
+                            selectedDuration = energyService.suggestedDuration
+                        }
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: Theme.spacingS) {
@@ -196,28 +202,33 @@ struct BreathingSessionView: View {
 }
 
 struct AdaptiveBreathingHint: View {
+    @StateObject private var energyService = EnergyService.shared
     @State private var suggestion: String = ""
 
     var body: some View {
-        Text(suggestion)
-            .font(.system(size: 13, design: .serif))
-            .foregroundColor(Theme.goldMuted)
-            .italic()
-            .onAppear {
-                suggestion = getSuggestion()
-            }
-    }
+        VStack(spacing: 4) {
+            Text(suggestion)
+                .font(.system(size: 13, design: .serif))
+                .foregroundColor(Theme.goldMuted)
+                .italic()
+                .multilineTextAlignment(.center)
 
-    private func getSuggestion() -> String {
-        let hour = Calendar.current.component(.hour, from: Date())
-        if hour < 10 {
-            return "Calm or Energize works well for morning clarity"
-        } else if hour >= 20 || hour < 6 {
-            return "Sleep pattern helps wind down before rest"
-        } else if hour < 14 {
-            return "Box breathing brings focus for the day ahead"
-        } else {
-            return "Coherent breathing balances energy and calm"
+            // Show energy level badge if available
+            HStack(spacing: 4) {
+                Image(systemName: energyService.currentEnergyLevel.icon)
+                    .font(.system(size: 10))
+                Text(energyService.currentEnergyLevel.rawValue)
+                    .font(.system(size: 10, weight: .medium))
+            }
+            .foregroundColor(Theme.goldMuted.opacity(0.7))
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
+            .background(Theme.goldPrimary.opacity(0.08))
+            .cornerRadius(8)
+        }
+        .onAppear {
+            energyService.update()
+            suggestion = energyService.adaptiveHint
         }
     }
 }
