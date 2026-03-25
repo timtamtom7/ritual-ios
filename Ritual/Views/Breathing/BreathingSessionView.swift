@@ -261,9 +261,7 @@ struct BreathingHistoryView: View {
 
     private var emptyView: some View {
         VStack(spacing: Theme.spacingM) {
-            Image(systemName: "wind")
-                .font(.system(size: 48))
-                .foregroundColor(Theme.goldMuted.opacity(0.5))
+            RitualEmptyIllustration(size: 160)
 
             Text("No breathing sessions yet")
                 .font(.system(size: 20, weight: .regular, design: .serif))

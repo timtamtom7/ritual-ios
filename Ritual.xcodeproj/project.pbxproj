@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04FE20DAD541BD3BD2CEB1B5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0103EF0F30555D6788BCA5 /* TodayView.swift */; };
 		0766C0F35AF9902EA5F88CEB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66524903C0F49BDD5ED47760 /* MainTabView.swift */; };
+		07FA45BB05B9AD8399630D92 /* RitualEmptyIllustration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBEE487E024269544D93A4 /* RitualEmptyIllustration.swift */; };
 		0BD49D5964CB0961BECFA0EB /* InsightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51BA1E6D74CBBB2E6436FAF /* InsightCard.swift */; };
 		0FDE81B0E2D51F51253CEDB1 /* AmbientSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018D815ACB1D1B43278449D /* AmbientSound.swift */; };
 		184133752FE131F195CBC58A /* CommunityTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F57D703401E3730F71E34 /* CommunityTemplatesView.swift */; };
@@ -55,6 +56,7 @@
 		254FBFB58FEF4D26D98D9BBD /* RitualWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualWidgets.swift; sourceTree = "<group>"; };
 		263DE7885C5DE859F6DCE54C /* RitualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualApp.swift; sourceTree = "<group>"; };
 		2AC39DECA442162AD9EA65A6 /* RitualWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualWatchApp.swift; sourceTree = "<group>"; };
+		35DBEE487E024269544D93A4 /* RitualEmptyIllustration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualEmptyIllustration.swift; sourceTree = "<group>"; };
 		37BAAC92941D0AF974A2C86E /* IntentionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionInputView.swift; sourceTree = "<group>"; };
 		3EB74F2350231C054F8EB7C8 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		5DB1EF7A93362D84D35EEFA6 /* RitualWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RitualWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 				66524903C0F49BDD5ED47760 /* MainTabView.swift */,
 				EA632C1945B5C7099D14B7AD /* Breathing */,
 				F9CBB09533BA7AF72EF3C386 /* Community */,
+				C8C697E8346CF69F097E68CF /* Components */,
 				B2A9D7944C2C5511F3715BA5 /* Insights */,
 				D028EBB9857073D6E4AD746B /* Timeline */,
 				0AD8267928A946E800C1875A /* Today */,
@@ -245,6 +248,14 @@
 				D8CDDD9B1F3A1CC355D2FC12 /* CheckInButton.swift */,
 				E51BA1E6D74CBBB2E6436FAF /* InsightCard.swift */,
 				7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C8C697E8346CF69F097E68CF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				35DBEE487E024269544D93A4 /* RitualEmptyIllustration.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -483,6 +494,7 @@
 				E673F7CA695C720E433078D5 /* MorningIntentionView.swift in Sources */,
 				EC63870FEBE6ED3B4EF7C62E /* NarrativeService.swift in Sources */,
 				790EE758A43B2D498611B8A2 /* RitualApp.swift in Sources */,
+				07FA45BB05B9AD8399630D92 /* RitualEmptyIllustration.swift in Sources */,
 				A70BC060774CD36CDF09E7AC /* Streak.swift in Sources */,
 				750F496034F603EFEF78665D /* TemplateCreatorView.swift in Sources */,
 				742A44044DEC37FF1E058A08 /* Theme.swift in Sources */,

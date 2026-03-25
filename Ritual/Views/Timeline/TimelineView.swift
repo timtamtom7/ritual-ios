@@ -27,9 +27,7 @@ struct TimelineView: View {
 
     private var emptyStateView: some View {
         VStack(spacing: Theme.spacingM) {
-            Image(systemName: "calendar")
-                .font(.system(size: 48))
-                .foregroundColor(Theme.goldMuted.opacity(0.5))
+            RitualEmptyIllustration(size: 180)
 
             Text("Your ritual begins\nwhen you're ready.")
                 .font(.system(size: 20, weight: .regular, design: .serif))
