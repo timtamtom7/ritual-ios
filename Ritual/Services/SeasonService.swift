@@ -126,7 +126,7 @@ final class SeasonService {
 
         // Find next season month
         let allMonths = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2]
-        var nextSeasonMonth = allMonths.first { $0 > currentMonth } ?? allMonths.first!
+        var nextSeasonMonth = allMonths.first { $0 > currentMonth } ?? allMonths.first ?? 1
 
         var components = calendar.dateComponents([.year], from: today)
         components.month = nextSeasonMonth

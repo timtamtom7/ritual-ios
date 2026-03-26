@@ -40,7 +40,7 @@ final class AmbientSoundPlayer: @unchecked Sendable {
         audioEngine = AVAudioEngine()
         guard let engine = audioEngine else { return }
 
-        let outputFormat = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 2)!
+        let outputFormat = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 2) ?? AVAudioFormat()
         let bufferSize: AVAudioFrameCount = 1024
 
         sourceNode = AVAudioSourceNode(format: outputFormat) { [weak self] _, _, frameCount, audioBufferList -> OSStatus in

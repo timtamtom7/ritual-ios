@@ -53,13 +53,15 @@ final class HealthKitService: ObservableObject {
     func requestAuthorization() async -> Bool {
         guard isHealthDataAvailable else { return false }
 
-        let typesToRead: Set<HKObjectType> = [
-            HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
-        ]
+        guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
+            return false
+        }
+
+        let typesToRead: Set<HKObjectType> = [sleepType]
 
         do {
             try await healthStore.requestAuthorization(toShare: [], read: typesToRead)
-            let authorized = healthStore.authorizationStatus(for: HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!) != .sharingDenied
+            let authorized = healthStore.authorizationStatus(for: sleepType) != .sharingDenied
             await MainActor.run { isAuthorized = authorized }
             return authorized
         } catch {
