@@ -11,16 +11,16 @@ enum SubscriptionTier: String, CaseIterable {
     var monthlyPrice: String {
         switch self {
         case .free: return "Free"
-        case .pro: return "$4.99/mo"
-        case .teacher: return "$9.99/mo"
+        case .pro: return "$9.99/mo"
+        case .teacher: return "$29.99/mo"
         }
     }
 
     var yearlyPrice: String {
         switch self {
         case .free: return "Free"
-        case .pro: return "$39.99/yr"
-        case .teacher: return "$79.99/yr"
+        case .pro: return "$79.99/yr"
+        case .teacher: return "$249.99/yr"
         }
     }
 
