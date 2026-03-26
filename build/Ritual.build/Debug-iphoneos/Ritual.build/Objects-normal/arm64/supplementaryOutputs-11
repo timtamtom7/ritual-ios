@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/TimelineViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/TodayViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Timeline/TimelineView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/TodayView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps"
+  }
+}

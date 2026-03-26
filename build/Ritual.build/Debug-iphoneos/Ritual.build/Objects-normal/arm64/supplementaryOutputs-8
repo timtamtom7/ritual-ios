@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/Dev/ritual-ios/Ritual/App/RitualApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/PolishComponents.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/NarrativeService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/RetentionService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Subscription/PaywallView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.swiftdeps"
+  }
+}

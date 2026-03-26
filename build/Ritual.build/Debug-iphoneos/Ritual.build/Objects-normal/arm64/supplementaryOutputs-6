@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/InsightCard.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/IntentionCard.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/Intention.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/InsightsViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Insights/InsightsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.swiftdeps"
+  }
+}

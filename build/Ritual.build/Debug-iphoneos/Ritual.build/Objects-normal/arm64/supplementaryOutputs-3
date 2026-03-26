@@ -1,0 +1,37 @@
+{
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/CheckInButton.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/BreathingSession.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/CheckIn.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/CalendarService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Breathing/BreathingSessionView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.dia",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.swiftdeps"
+  }
+}

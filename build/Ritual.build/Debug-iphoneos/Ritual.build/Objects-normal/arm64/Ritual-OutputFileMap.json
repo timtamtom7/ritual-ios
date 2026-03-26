@@ -1,0 +1,519 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Ritual-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Ritual-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Ritual-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Ritual-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Ritual-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/App/RitualApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualApp~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/BreathingCircleView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingCircleView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/CheckInButton.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckInButton~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/InsightCard.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightCard~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/IntentionCard.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionCard~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Components/PolishComponents.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PolishComponents~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/AmbientSound.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSound~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/BreathingSession.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSession~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/CheckIn.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CheckIn~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/CustomTemplate.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CustomTemplate~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/GroupRitual.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitual~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/Intention.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Intention~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/IntentionTemplate.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionTemplate~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Models/Streak.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Streak~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/AmbientSoundPlayer.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AmbientSoundPlayer~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/AppleIntelligenceService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/AppleIntelligenceService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/BreathingService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/CalendarService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CalendarService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/DatabaseService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/DatabaseService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/EnergyService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EnergyService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/GroupBreathingService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupBreathingService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/HealthKitService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HealthKitService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/LocalizationService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/LocalizationService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/NarrativeService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/NarrativeService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/RetentionService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RetentionService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/RitualR11Service.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualR11Service~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/SeasonService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SeasonService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/SubscriptionService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SubscriptionService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Services/TeacherService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TeacherService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Theme/Theme.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/Theme~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/InsightsViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/TimelineViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/ViewModels/TodayViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Breathing/BreathingSessionView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingSessionView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Breathing/SpatialBreathingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SpatialBreathingView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Community/CommunityTemplatesView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/CommunityTemplatesView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Community/TemplateCreatorView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TemplateCreatorView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Components/RitualEmptyIllustration.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/RitualEmptyIllustration~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Group/GroupRitualView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GroupRitualView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Group/HostSessionView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/HostSessionView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Insights/InsightsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/InsightsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/MainTabView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MainTabView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/SettingsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Subscription/PaywallView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/PaywallView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Timeline/TimelineView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TimelineView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/BreathingGuideView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/BreathingGuideView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/EveningCheckInView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/EveningCheckInView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/IntentionInputView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/IntentionInputView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/MorningIntentionView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/MorningIntentionView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/Ritual/Views/Today/TodayView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/TodayView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/ritual-ios/build/Ritual.build/Debug-iphoneos/Ritual.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

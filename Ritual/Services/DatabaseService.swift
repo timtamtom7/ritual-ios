@@ -92,13 +92,17 @@ final class DatabaseService {
     // MARK: - Intentions
 
     func saveIntention(_ intention: Intention) throws {
+        guard let db = db else {
+            let nsError = NSError(domain: "DatabaseService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Database connection not available"])
+            throw nsError
+        }
         let insert = intentions.insert(
             id <- intention.id,
             text <- intention.text,
             createdAt <- dateFormatter.string(from: intention.createdAt),
             category <- intention.category
         )
-        try db?.run(insert)
+        try db.run(insert)
     }
 
     func getIntentions() -> [Intention] {
@@ -145,14 +149,22 @@ final class DatabaseService {
         return nil
     }
 
-    func updateIntentionCategory(_ intentionId: String, category: String) throws {
+    func updateIntentionCategory(_ intentionId: String, category newCategory: String) throws {
+        guard let db = db else {
+            let nsError = NSError(domain: "DatabaseService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Database connection not available"])
+            throw nsError
+        }
         let query = intentions.filter(id == intentionId)
-        try db?.run(query.update(self.category <- category))
+        try db.run(query.update(category <- newCategory))
     }
 
     // MARK: - Check-Ins
 
     func saveCheckIn(_ checkIn: CheckIn) throws {
+        guard let db = db else {
+            let nsError = NSError(domain: "DatabaseService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Database connection not available"])
+            throw nsError
+        }
         let insert = checkIns.insert(
             id <- checkIn.id,
             intentionId <- checkIn.intentionId,
@@ -160,7 +172,7 @@ final class DatabaseService {
             reflection <- checkIn.reflection,
             createdAt <- dateFormatter.string(from: checkIn.createdAt)
         )
-        try db?.run(insert)
+        try db.run(insert)
     }
 
     func getCheckIns(forIntentionId intentionId: String) -> [CheckIn] {
@@ -213,6 +225,10 @@ final class DatabaseService {
     // MARK: - Breathing Sessions
 
     func saveBreathingSession(_ session: BreathingSession) throws {
+        guard let db = db else {
+            let nsError = NSError(domain: "DatabaseService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Database connection not available"])
+            throw nsError
+        }
         let insert = breathingSessions.insert(
             id <- session.id,
             pattern <- session.pattern.rawValue,
@@ -220,12 +236,16 @@ final class DatabaseService {
             completed <- session.completed,
             createdAt <- dateFormatter.string(from: session.createdAt)
         )
-        try db?.run(insert)
+        try db.run(insert)
     }
 
-    func updateBreathingSessionCompleted(_ sessionId: String, completed: Bool) throws {
+    func updateBreathingSessionCompleted(_ sessionId: String, completed newValue: Bool) throws {
+        guard let db = db else {
+            let nsError = NSError(domain: "DatabaseService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Database connection not available"])
+            throw nsError
+        }
         let query = breathingSessions.filter(id == sessionId)
-        try db?.run(query.update(self.completed <- completed))
+        try db.run(query.update(completed <- newValue))
     }
 
     func getBreathingSessions() -> [BreathingSession] {
