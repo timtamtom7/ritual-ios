@@ -21,11 +21,12 @@ struct InsightsView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { viewModel.refresh() }) {
+                    Button(action: { HapticFeedback.selection(); viewModel.refresh() }) {
                         Image(systemName: "arrow.clockwise")
                             .font(.system(size: 16))
                             .foregroundColor(Theme.goldPrimary)
                     }
+                    .accessibilityLabel("Refresh insights")
                 }
             }
         }
@@ -546,7 +547,7 @@ struct HealthKitSleepCorrelationCard: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(Theme.goldPrimary.opacity(0.1))
-                    .cornerRadius(8)
+                    .cornerRadius(Theme.compactRadius)
             }
 
             Text(report.headline)
@@ -656,12 +657,12 @@ struct ProgressRow: View {
                     Rectangle()
                         .fill(Theme.surface)
                         .frame(height: 4)
-                        .cornerRadius(2)
+                        .cornerRadius(Theme.tinyRadius)
 
                     Rectangle()
                         .fill(Theme.goldPrimary)
                         .frame(width: geometry.size.width * progress, height: 4)
-                        .cornerRadius(2)
+                        .cornerRadius(Theme.tinyRadius)
                 }
             }
             .frame(height: 4)

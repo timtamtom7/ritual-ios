@@ -88,7 +88,7 @@ struct SpatialBreathingView: View {
                     .foregroundColor(selectedEnvironment == env ? .white : .white.opacity(0.5))
                     .padding()
                     .background(selectedEnvironment == env ? Color.white.opacity(0.2) : Color.clear)
-                    .cornerRadius(12)
+                    .cornerRadius(Theme.buttonRadius)
                 }
             }
         }
@@ -143,7 +143,7 @@ struct SpatialBreathingView: View {
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.red.opacity(0.6))
-                        .cornerRadius(12)
+                        .cornerRadius(Theme.buttonRadius)
                 }
             } else {
                 Button {
@@ -154,7 +154,7 @@ struct SpatialBreathingView: View {
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.green.opacity(0.6))
-                        .cornerRadius(12)
+                        .cornerRadius(Theme.buttonRadius)
                 }
             }
         }

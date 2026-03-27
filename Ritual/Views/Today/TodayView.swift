@@ -53,6 +53,7 @@ struct TodayView: View {
                         Image(systemName: "gearshape")
                             .foregroundColor(Theme.goldPrimary)
                     }
+                    .accessibilityLabel("Settings")
                 }
             }
             .sheet(isPresented: $showingBreathing) {
@@ -234,7 +235,10 @@ struct TodayView: View {
     }
 
     private var breathingButton: some View {
-        Button(action: { showingBreathing = true }) {
+        Button(action: {
+            HapticFeedback.impact(.light)
+            showingBreathing = true
+        }) {
             HStack(spacing: Theme.spacingS) {
                 Image(systemName: "wind")
                     .font(.system(size: 18))
@@ -251,6 +255,7 @@ struct TodayView: View {
                     .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
             )
         }
+        .accessibilityLabel("Open breathing session")
         .padding(.top, Theme.spacingS)
     }
 
@@ -404,7 +409,7 @@ struct MissDot: View {
                 .frame(width: 24, height: 24)
                 .overlay(
                     Text(dayAbbrev)
-                        .font(.system(size: 9, weight: .medium))
+                        .font(.system(size: 11, weight: .medium))
                         .foregroundColor(Theme.warning)
                 )
         }
@@ -457,7 +462,7 @@ struct CalendarConflictWarning: View {
                     ForEach(eventTitles, id: \.self) { title in
                         HStack(spacing: Theme.spacingS) {
                             Image(systemName: "circle.fill")
-                                .font(.system(size: 6))
+                                .font(.system(size: 11))
                                 .foregroundColor(Theme.warning)
                             Text(title)
                                 .font(.system(size: 14))

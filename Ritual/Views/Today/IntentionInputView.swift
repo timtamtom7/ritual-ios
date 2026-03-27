@@ -48,11 +48,12 @@ struct IntentionInputView: View {
             }
 
             HStack {
-                Button(action: handleMicTap) {
+                Button(action: { HapticFeedback.selection(); handleMicTap() }) {
                     Image(systemName: isRecording ? "stop.circle.fill" : "mic.fill")
                         .font(.system(size: 22))
                         .foregroundColor(isRecording ? Theme.warning : Theme.goldMuted)
                 }
+                .accessibilityLabel(isRecording ? "Stop voice recording" : "Start voice recording")
                 .opacity(showVoiceUnavailable ? 0 : 1)
                 .disabled(showVoiceUnavailable)
                 .alert("Voice Input Unavailable", isPresented: $showPermissionAlert) {

@@ -35,17 +35,20 @@ struct BreathingSessionView: View {
         ScrollView {
             VStack(spacing: Theme.spacingXL) {
                 HStack {
-                    Button(action: { dismiss() }) {
+                    Button(action: { HapticFeedback.impact(.light); dismiss() }) {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .medium))
                             .foregroundColor(Theme.textMuted)
                     }
+                    .accessibilityLabel("Close breathing session")
+
                     Spacer()
-                    Button(action: { showHistory = true }) {
+                    Button(action: { HapticFeedback.selection(); showHistory = true }) {
                         Image(systemName: "clock.arrow.circlepath")
                             .font(.system(size: 16))
                             .foregroundColor(Theme.goldMuted)
                     }
+                    .accessibilityLabel("View breathing history")
                 }
                 .padding(.horizontal, Theme.spacingM)
                 .padding(.top, Theme.spacingS)
@@ -161,7 +164,7 @@ struct BreathingSessionView: View {
                     .foregroundColor(Theme.textMuted)
             }
 
-            Button(action: togglePause) {
+            Button(action: { HapticFeedback.impact(.medium); togglePause() }) {
                 Text(breathingService.isPaused ? "Resume" : "Pause")
                     .font(.system(size: 17, weight: .medium))
                     .foregroundColor(Theme.goldPrimary)
@@ -170,13 +173,15 @@ struct BreathingSessionView: View {
                     .background(Theme.goldPrimary.opacity(0.1))
                     .cornerRadius(Theme.buttonRadius)
             }
+            .accessibilityLabel(breathingService.isPaused ? "Resume breathing" : "Pause breathing")
             .padding(.horizontal, Theme.spacingM)
 
-            Button(action: stopSession) {
+            Button(action: { HapticFeedback.impact(.light); stopSession() }) {
                 Text("End Session")
                     .font(.system(size: 15))
                     .foregroundColor(Theme.textMuted)
             }
+            .accessibilityLabel("End breathing session")
             .padding(.bottom, Theme.spacingXL)
         }
     }
@@ -224,7 +229,7 @@ struct AdaptiveBreathingHint: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 3)
             .background(Theme.goldPrimary.opacity(0.08))
-            .cornerRadius(8)
+            .cornerRadius(Theme.compactRadius)
         }
         .onAppear {
             energyService.update()
@@ -303,7 +308,7 @@ struct BreathingSessionRow: View {
                 .foregroundColor(Theme.goldPrimary)
                 .frame(width: 32, height: 32)
                 .background(Theme.goldPrimary.opacity(0.1))
-                .cornerRadius(8)
+                .cornerRadius(Theme.compactRadius)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(session.pattern.rawValue)
@@ -355,7 +360,10 @@ struct PatternButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticFeedback.selection()
+            action()
+        }) {
             VStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: 14, weight: .medium))
@@ -372,6 +380,7 @@ struct PatternButton: View {
                     .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
             )
         }
+        .buttonStyle(ScaleButtonStyle())
     }
 }
 
@@ -381,7 +390,10 @@ struct DurationButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticFeedback.selection()
+            action()
+        }) {
             Text("\(minutes)m")
                 .font(.system(size: 15, weight: .medium))
                 .foregroundColor(isSelected ? Theme.background : Theme.textSecondary)
@@ -394,6 +406,7 @@ struct DurationButton: View {
                         .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
                 )
         }
+        .buttonStyle(ScaleButtonStyle())
     }
 }
 
@@ -403,7 +416,10 @@ struct AmbientSoundButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticFeedback.selection()
+            action()
+        }) {
             VStack(spacing: 4) {
                 Image(systemName: sound.icon)
                     .font(.system(size: 16))
@@ -420,5 +436,6 @@ struct AmbientSoundButton: View {
                     .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
             )
         }
+        .buttonStyle(ScaleButtonStyle())
     }
 }

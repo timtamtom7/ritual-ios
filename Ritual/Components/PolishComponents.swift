@@ -91,7 +91,7 @@ struct SkeletonView: View {
     @State private var isAnimating = false
 
     var body: some View {
-        RoundedRectangle(cornerRadius: 8)
+        RoundedRectangle(cornerRadius: Theme.compactRadius)
             .fill(
                 LinearGradient(
                     colors: [Theme.surface, Theme.surface.opacity(0.5), Theme.surface],

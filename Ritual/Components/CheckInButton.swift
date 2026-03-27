@@ -6,7 +6,10 @@ struct CheckInButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticFeedback.impact(.light)
+            action()
+        }) {
             Text(title)
                 .font(.system(size: 17, weight: .medium))
                 .foregroundColor(isSelected ? Theme.background : Theme.goldPrimary)
@@ -37,7 +40,10 @@ struct PrimaryButton: View {
     var isEnabled: Bool = true
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticFeedback.impact(.medium)
+            action()
+        }) {
             Text(title)
                 .font(.system(size: 17, weight: .medium))
                 .foregroundColor(Theme.background)

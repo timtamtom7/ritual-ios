@@ -30,6 +30,21 @@ enum Theme {
     // MARK: - Corner Radius
     static let cardRadius: CGFloat = 16
     static let buttonRadius: CGFloat = 12
+    static let glassRadius: CGFloat = 24  // iOS 26 Liquid Glass large cards
+    static let glassRadiusSmall: CGFloat = 12  // iOS 26 Liquid Glass small elements
+    static let compactRadius: CGFloat = 8  // For small UI elements like badges
+    static let tinyRadius: CGFloat = 4  // For progress bars and dividers
+
+    // MARK: - Haptics
+    static let hapticIntensity: CGFloat = 0.6  // Normalized haptic intensity
+
+    // MARK: - Button Styles
+    static let primaryButtonHeight: CGFloat = 56
+    static let secondaryButtonHeight: CGFloat = 48
+    static let compactButtonHeight: CGFloat = 36
+
+    // MARK: - Min Font Size (Accessibility)
+    static let minFontSize: CGFloat = 11
 }
 
 extension Color {

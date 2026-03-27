@@ -50,11 +50,12 @@ struct MorningIntentionView: View {
 
             Spacer()
 
-            Button(action: { currentStep = 1 }) {
+            Button(action: { HapticFeedback.impact(.light); currentStep = 1 }) {
                 Text("Skip")
                     .font(.system(size: 15))
                     .foregroundColor(Theme.textMuted)
             }
+            .accessibilityLabel("Skip breathing exercise")
             .padding(.bottom, Theme.spacingM)
         }
         .onAppear {

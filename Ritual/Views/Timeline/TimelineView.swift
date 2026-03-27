@@ -167,6 +167,6 @@ struct CheckInStatusBadge: View {
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
         .background((acted ? Theme.success : Theme.warning).opacity(0.15))
-        .cornerRadius(6)
+        .cornerRadius(Theme.compactRadius)
     }
 }

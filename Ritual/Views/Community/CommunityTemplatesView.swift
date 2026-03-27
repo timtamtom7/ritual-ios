@@ -233,9 +233,9 @@ struct CategoryChip: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .background(isSelected ? Theme.goldPrimary : Theme.surface)
-                .cornerRadius(20)
+                .cornerRadius(Theme.glassRadius)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: Theme.glassRadius)
                         .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
                 )
         }
@@ -254,7 +254,7 @@ struct TemplateCard: View {
                     .foregroundColor(Theme.goldPrimary)
                     .frame(width: 36, height: 36)
                     .background(Theme.goldPrimary.opacity(0.1))
-                    .cornerRadius(10)
+                    .cornerRadius(Theme.compactRadius)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(template.title)
@@ -318,7 +318,7 @@ struct CustomTemplateCard: View {
                     .foregroundColor(Theme.goldPrimary)
                     .frame(width: 36, height: 36)
                     .background(Theme.goldPrimary.opacity(0.1))
-                    .cornerRadius(10)
+                    .cornerRadius(Theme.compactRadius)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(template.title)

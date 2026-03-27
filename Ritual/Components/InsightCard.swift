@@ -11,7 +11,7 @@ struct InsightCard: View {
                     .foregroundColor(Theme.goldPrimary)
                     .frame(width: 40, height: 40)
                     .background(Theme.goldPrimary.opacity(0.1))
-                    .cornerRadius(10)
+                    .cornerRadius(Theme.glassRadiusSmall)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text("\(Int(insight.successRate))%")

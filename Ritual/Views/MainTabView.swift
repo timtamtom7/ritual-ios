@@ -134,12 +134,6 @@ struct MainTabView: View {
                     Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
                 }
                 .tag(4)
-
-            InsightsView()
-                .tabItem {
-                    Label("Insights", systemImage: "chart.line.uptrend.xyaxis")
-                }
-                .tag(3)
         }
         .tint(Theme.goldPrimary)
         .onAppear {

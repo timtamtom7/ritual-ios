@@ -271,9 +271,9 @@ struct CategoryPickerChip: View {
             .padding(.horizontal, 14)
             .padding(.vertical, 8)
             .background(isSelected ? Theme.goldPrimary : Theme.surface)
-            .cornerRadius(20)
+            .cornerRadius(Theme.glassRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: Theme.glassRadius)
                     .stroke(Theme.goldMuted.opacity(0.3), lineWidth: isSelected ? 0 : 1)
             )
         }

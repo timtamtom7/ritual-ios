@@ -72,7 +72,7 @@ struct SettingsView: View {
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 3)
                                     .background(Theme.goldPrimary.opacity(0.1))
-                                    .cornerRadius(8)
+                                    .cornerRadius(Theme.compactRadius)
                             }
                         }
                     }

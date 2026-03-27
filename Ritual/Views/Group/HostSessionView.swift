@@ -675,7 +675,7 @@ struct GroupBreathingView: View {
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(Theme.goldPrimary.opacity(0.1))
-                            .cornerRadius(4)
+                            .cornerRadius(Theme.tinyRadius)
                     }
 
                     Spacer()

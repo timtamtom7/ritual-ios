@@ -87,7 +87,7 @@ struct PaywallView: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(Theme.success.opacity(0.1))
-                        .cornerRadius(8)
+                        .cornerRadius(Theme.compactRadius)
                 }
             }
             .padding(Theme.spacingM)
