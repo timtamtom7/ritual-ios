@@ -6,12 +6,12 @@ struct MacTimelineView: View {
             VStack(alignment: .leading, spacing: 24) {
                 Text("Timeline")
                     .font(.system(size: 28, weight: .light, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.primaryText)
                     .padding(.bottom, 8)
 
                 Text("Your ritual history over time")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .font(MacTheme.bodyFont)
+                    .foregroundColor(MacTheme.mutedText)
 
                 // Show last 30 days
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 8) {
@@ -23,7 +23,7 @@ struct MacTimelineView: View {
             }
             .padding(24)
         }
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.background)
     }
 
     private var last30Days: [Date] {
@@ -65,20 +65,20 @@ struct DayCell: View {
         VStack(spacing: 2) {
             Text(monthAbbr)
                 .font(.system(size: 9))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.mutedText)
             Text(dayNumber)
                 .font(.system(size: 14, weight: isToday ? .bold : .regular))
-                .foregroundColor(isToday ? Color(hex: "0D0B09") : (hadIntentions ? Color(hex: "F5F0E8") : Color(hex: "5C544A")))
+                .foregroundColor(isToday ? .white : (hadIntentions ? MacTheme.primaryText : MacTheme.mutedText))
         }
         .frame(width: 48, height: 48)
         .background(
-            isToday ? Color(hex: "C9A96E") :
-            (hadIntentions ? Color(hex: "C9A96E").opacity(0.2) : Color(hex: "1A1714"))
+            isToday ? MacTheme.warmAmber :
+            (hadIntentions ? MacTheme.warmAmber.opacity(0.2) : MacTheme.cardBg)
         )
         .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.mutedText.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -87,13 +87,14 @@ struct MacInsightsView: View {
     @State private var totalIntentions: Int = 0
     @State private var totalCheckIns: Int = 0
     @State private var streakCount: Int = 0
+    @State private var monthlyTheme: String = ""
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text("Insights")
-                    .font(.system(size: 28, weight: .light, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .font(MacTheme.titleFont)
+                    .foregroundColor(MacTheme.primaryText)
                     .padding(.bottom, 8)
 
                 HStack(spacing: 16) {
@@ -103,42 +104,36 @@ struct MacInsightsView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Monthly Narrative")
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(Color(hex: "9C9285"))
-                        .textCase(.uppercase)
-                        .tracking(1)
+                    Text("Monthly Theme")
+                        .font(MacTheme.headingFont)
+                        .foregroundColor(MacTheme.primaryText)
 
-                    let narrative = NarrativeService.shared.generateMonthlyNarrative()
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(narrative.openingParagraph)
-                            .font(.system(size: 15, design: .serif))
-                            .foregroundColor(Color(hex: "F5F0E8"))
+                    if !monthlyTheme.isEmpty {
+                        Text(monthlyTheme)
+                            .font(MacTheme.bodyFont)
+                            .foregroundColor(MacTheme.secondaryText)
                             .italic()
-
-                        Text(narrative.categoryParagraph)
-                            .font(.system(size: 14))
-                            .foregroundColor(Color(hex: "9C9285"))
-
-                        Text(narrative.changeParagraph)
-                            .font(.system(size: 14))
-                            .foregroundColor(Color(hex: "9C9285"))
+                    } else {
+                        Text("Complete more rituals to discover your monthly theme.")
+                            .font(MacTheme.bodyFont)
+                            .foregroundColor(MacTheme.mutedText)
                     }
-                    .padding(16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(hex: "1A1714"))
-                    .cornerRadius(12)
                 }
+                .padding(MacTheme.spacingM)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(MacTheme.cardBg)
+                .cornerRadius(MacTheme.cardRadius)
             }
             .padding(24)
         }
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.background)
         .onAppear {
             let intentions = DatabaseService.shared.getIntentions()
             let checkIns = DatabaseService.shared.getAllCheckIns()
             totalIntentions = intentions.count
             totalCheckIns = checkIns.count
             streakCount = DatabaseService.shared.getStreakData().currentStreak
+            monthlyTheme = DatabaseService.shared.getMonthlyTheme() ?? ""
         }
     }
 }

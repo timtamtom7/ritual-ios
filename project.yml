@@ -68,6 +68,9 @@ targets:
           - "**/AmbientSoundPlayer.swift"
           - "**/HealthKitService.swift"
           - "**/BreathingService.swift"
+          - "**/GroupBreathingService.swift"
+          - "**/CalendarService.swift"
+          - "**/NarrativeService.swift"
       - path: Ritual/Theme
         excludes:
           - "**/.DS_Store"

@@ -2,20 +2,33 @@ import SwiftUI
 
 @main
 struct RitualMacApp: App {
-    init() {
-        Task {
-            _ = await CalendarService.shared.requestAccess()
-            CalendarService.shared.fetchTodaysEvents()
-        }
-    }
-
+    @StateObject private var viewModel = RitualMacViewModel()
+    
     var body: some Scene {
         WindowGroup {
             MacMainView()
-                .preferredColorScheme(.dark)
-                .frame(minWidth: 800, minHeight: 600)
+                .environmentObject(viewModel)
+                .preferredColorScheme(.light)
+                .frame(minWidth: 700, minHeight: 500)
         }
         .windowStyle(.hiddenTitleBar)
-        .defaultSize(width: 1000, height: 700)
+        .defaultSize(width: 900, height: 650)
+        .commands {
+            CommandGroup(replacing: .newItem) { }
+            
+            CommandMenu("Ritual") {
+                Button("Show Window") {
+                    NSApp.activate(ignoringOtherApps: true)
+                }
+                .keyboardShortcut("1")
+                
+                Divider()
+                
+                Button("Quit Ritual") {
+                    NSApp.terminate(nil)
+                }
+                .keyboardShortcut("q")
+            }
+        }
     }
 }
