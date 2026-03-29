@@ -59,6 +59,9 @@ targets:
       - path: RitualMac
         excludes:
           - "**/.DS_Store"
+      - path: RitualMac/Sources
+        excludes:
+          - "**/.DS_Store"
       - path: Ritual/Models
         excludes:
           - "**/.DS_Store"
