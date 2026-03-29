@@ -25,7 +25,7 @@ struct SharedRitualsView: View {
             .padding(.top, 16)
 
             Divider()
-                .background(Color(hex: "8B7355").opacity(0.3))
+                .background(MacTheme.goldMuted.opacity(0.3))
                 .padding(.top, 12)
 
             ScrollView {
@@ -44,7 +44,7 @@ struct SharedRitualsView: View {
                 .padding(24)
             }
         }
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.darkBackground)
         .sheet(isPresented: $showingInviteSheet) {
             InvitePartnerSheet(email: $inviteEmail, onInvite: {
                 accountabilityService.invitePartner(email: inviteEmail)
@@ -68,7 +68,7 @@ struct SharedRitualsView: View {
             HStack {
                 Text("Accountability Partners")
                     .font(.system(size: 20, weight: .light, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
 
                 Spacer()
 
@@ -81,10 +81,10 @@ struct SharedRitualsView: View {
                         Text("Invite")
                             .font(.system(size: 13, weight: .medium))
                     }
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
                 }
                 .buttonStyle(.plain)
@@ -109,15 +109,15 @@ struct SharedRitualsView: View {
         VStack(spacing: 16) {
             Image(systemName: "person.2.slash")
                 .font(.system(size: 40))
-                .foregroundColor(Color(hex: "8B7355"))
+                .foregroundColor(MacTheme.goldMuted)
 
             Text("No Partners Yet")
                 .font(.system(size: 18, weight: .medium))
-                .foregroundColor(Color(hex: "F5F0E8"))
+                .foregroundColor(MacTheme.textPrimary)
 
             Text("Invite someone to hold you accountable on your ritual journey.")
                 .font(.system(size: 14))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
                 .multilineTextAlignment(.center)
 
             Button {
@@ -125,10 +125,10 @@ struct SharedRitualsView: View {
             } label: {
                 Text("Invite a Partner")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
             }
             .buttonStyle(.plain)
@@ -136,7 +136,7 @@ struct SharedRitualsView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(40)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(16)
     }
 
@@ -144,23 +144,23 @@ struct SharedRitualsView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "chart.bar.doc.horizontal")
-                    .foregroundColor(Color(hex: "C9A96E"))
+                    .foregroundColor(MacTheme.goldPrimary)
                 Text("Weekly Summary")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
             }
 
             Text(accountabilityService.exportWeeklySummary())
                 .font(.system(size: 13))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 
@@ -172,7 +172,7 @@ struct SharedRitualsView: View {
             HStack {
                 Text("Shared Rituals")
                     .font(.system(size: 20, weight: .light, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
 
                 Spacer()
 
@@ -185,10 +185,10 @@ struct SharedRitualsView: View {
                         Text("Create")
                             .font(.system(size: 13, weight: .medium))
                     }
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
                 }
                 .buttonStyle(.plain)
@@ -219,15 +219,15 @@ struct SharedRitualsView: View {
         VStack(spacing: 16) {
             Image(systemName: "person.2.circle")
                 .font(.system(size: 40))
-                .foregroundColor(Color(hex: "8B7355"))
+                .foregroundColor(MacTheme.goldMuted)
 
             Text("No Shared Rituals")
                 .font(.system(size: 18, weight: .medium))
-                .foregroundColor(Color(hex: "F5F0E8"))
+                .foregroundColor(MacTheme.textPrimary)
 
             Text("Create a ritual to share with your accountability partner.")
                 .font(.system(size: 14))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
                 .multilineTextAlignment(.center)
 
             Button {
@@ -235,10 +235,10 @@ struct SharedRitualsView: View {
             } label: {
                 Text("Create Shared Ritual")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
             }
             .buttonStyle(.plain)
@@ -246,7 +246,7 @@ struct SharedRitualsView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(40)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(16)
     }
 
@@ -258,14 +258,14 @@ struct SharedRitualsView: View {
             HStack {
                 Text("Family Rituals")
                     .font(.system(size: 20, weight: .light, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
 
                 Spacer()
             }
 
             Text("Create and track rituals for your household")
                 .font(.system(size: 14))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
 
             // Family ritual templates
             VStack(spacing: 12) {
@@ -308,18 +308,18 @@ struct PartnerCard: View {
             HStack {
                 // Avatar
                 Circle()
-                    .fill(Color(hex: "C9A96E").opacity(0.2))
+                    .fill(MacTheme.goldPrimary.opacity(0.2))
                     .frame(width: 44, height: 44)
                     .overlay(
                         Text(String(partner.displayName.prefix(1)).uppercased())
                             .font(.system(size: 18, weight: .medium))
-                            .foregroundColor(Color(hex: "C9A96E"))
+                            .foregroundColor(MacTheme.goldPrimary)
                     )
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(partner.displayName)
                         .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(Color(hex: "F5F0E8"))
+                        .foregroundColor(MacTheme.textPrimary)
 
                     HStack(spacing: 4) {
                         Image(systemName: partner.relationship.icon)
@@ -327,7 +327,7 @@ struct PartnerCard: View {
                         Text(partner.relationship.rawValue)
                             .font(.system(size: 12))
                     }
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
                 }
 
                 Spacer()
@@ -337,18 +337,18 @@ struct PartnerCard: View {
             }
 
             Divider()
-                .background(Color(hex: "8B7355").opacity(0.2))
+                .background(MacTheme.goldMuted.opacity(0.2))
 
             HStack {
                 // Today's status
                 HStack(spacing: 6) {
                     Image(systemName: partner.todayCompleted ? "checkmark.circle.fill" : "circle")
                         .font(.system(size: 14))
-                        .foregroundColor(partner.todayCompleted ? Color(hex: "7A9E7A") : Color(hex: "8B7355"))
+                        .foregroundColor(partner.todayCompleted ? MacTheme.success : MacTheme.goldMuted)
 
                     Text(partner.todayCompleted ? "Completed today" : "Pending today")
                         .font(.system(size: 12))
-                        .foregroundColor(Color(hex: "9C9285"))
+                        .foregroundColor(MacTheme.textSecondary)
                 }
 
                 Spacer()
@@ -363,10 +363,10 @@ struct PartnerCard: View {
                         Text("Encourage")
                             .font(.system(size: 12, weight: .medium))
                     }
-                    .foregroundColor(Color(hex: "C9A96E"))
+                    .foregroundColor(MacTheme.goldPrimary)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 6)
-                    .background(Color(hex: "C9A96E").opacity(0.15))
+                    .background(MacTheme.goldPrimary.opacity(0.15))
                     .cornerRadius(6)
                 }
                 .buttonStyle(.plain)
@@ -378,17 +378,17 @@ struct PartnerCard: View {
                 } label: {
                     Image(systemName: partner.mutedMode ? "bell.slash.fill" : "bell.fill")
                         .font(.system(size: 12))
-                        .foregroundColor(Color(hex: "9C9285"))
+                        .foregroundColor(MacTheme.textSecondary)
                 }
                 .buttonStyle(.plain)
             }
         }
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -400,23 +400,23 @@ struct AccountabilityStreakBadge: View {
         HStack(spacing: 4) {
             Image(systemName: "flame.fill")
                 .font(.system(size: 12))
-                .foregroundColor(streak > 0 ? Color(hex: "C4956A") : Color(hex: "5C544A"))
+                .foregroundColor(streak > 0 ? MacTheme.warning : MacTheme.textMuted)
 
             Text("\(streak)")
                 .font(.system(size: 14, weight: .medium))
-                .foregroundColor(streak > 0 ? Color(hex: "F5F0E8") : Color(hex: "5C544A"))
+                .foregroundColor(streak > 0 ? MacTheme.textPrimary : MacTheme.textMuted)
 
             Text("days")
                 .font(.system(size: 11))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(8)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color(hex: "8B7355").opacity(streak > 0 ? 0.5 : 0.2), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(streak > 0 ? 0.5 : 0.2), lineWidth: 1)
         )
     }
 }
@@ -431,19 +431,19 @@ struct SharedRitualCard: View {
             HStack {
                 Image(systemName: ritual.ritualType.icon)
                     .font(.system(size: 18))
-                    .foregroundColor(Color(hex: "C9A96E"))
+                    .foregroundColor(MacTheme.goldPrimary)
                     .frame(width: 36, height: 36)
-                    .background(Color(hex: "C9A96E").opacity(0.15))
+                    .background(MacTheme.goldPrimary.opacity(0.15))
                     .cornerRadius(8)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(ritual.title)
                         .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(Color(hex: "F5F0E8"))
+                        .foregroundColor(MacTheme.textPrimary)
 
                     Text(ritual.ritualType.description)
                         .font(.system(size: 12))
-                        .foregroundColor(Color(hex: "9C9285"))
+                        .foregroundColor(MacTheme.textSecondary)
                 }
 
                 Spacer()
@@ -451,10 +451,10 @@ struct SharedRitualCard: View {
                 if ritual.completedBy.count > 0 {
                     Text("\(ritual.completedBy.count)/\(ritual.participants.count + 1)")
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color(hex: "7A9E7A"))
+                        .foregroundColor(MacTheme.success)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
-                        .background(Color(hex: "7A9E7A").opacity(0.15))
+                        .background(MacTheme.success.opacity(0.15))
                         .cornerRadius(6)
                 }
             }
@@ -464,16 +464,16 @@ struct SharedRitualCard: View {
                 HStack(spacing: -8) {
                     ForEach(ritual.participants, id: \.self) { participant in
                         Circle()
-                            .fill(Color(hex: "8B7355"))
+                            .fill(MacTheme.goldMuted)
                             .frame(width: 28, height: 28)
                             .overlay(
                                 Text(String(participant.prefix(1)).uppercased())
                                     .font(.system(size: 11, weight: .medium))
-                                    .foregroundColor(Color(hex: "F5F0E8"))
+                                    .foregroundColor(MacTheme.textPrimary)
                             )
                             .overlay(
                                 Circle()
-                                    .stroke(Color(hex: "1A1714"), lineWidth: 2)
+                                    .stroke(MacTheme.darkSurface, lineWidth: 2)
                             )
                     }
                 }
@@ -489,21 +489,21 @@ struct SharedRitualCard: View {
                     Text(isCompleted ? "Completed" : "Mark as Done")
                         .font(.system(size: 13, weight: .medium))
                 }
-                .foregroundColor(isCompleted ? Color(hex: "7A9E7A") : Color(hex: "C9A96E"))
+                .foregroundColor(isCompleted ? MacTheme.success : MacTheme.goldPrimary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
-                .background(isCompleted ? Color(hex: "7A9E7A").opacity(0.15) : Color(hex: "C9A96E").opacity(0.15))
+                .background(isCompleted ? MacTheme.success.opacity(0.15) : MacTheme.goldPrimary.opacity(0.15))
                 .cornerRadius(8)
             }
             .buttonStyle(.plain)
             .disabled(isCompleted)
         }
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -520,23 +520,23 @@ struct FamilyRitualTemplate: View {
         HStack(spacing: 12) {
             Image(systemName: icon)
                 .font(.system(size: 20))
-                .foregroundColor(Color(hex: "C9A96E"))
+                .foregroundColor(MacTheme.goldPrimary)
                 .frame(width: 44, height: 44)
-                .background(Color(hex: "C9A96E").opacity(0.15))
+                .background(MacTheme.goldPrimary.opacity(0.15))
                 .cornerRadius(10)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
 
                 Text(description)
                     .font(.system(size: 12))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
 
                 Text(duration)
                     .font(.system(size: 11))
-                    .foregroundColor(Color(hex: "8B7355"))
+                    .foregroundColor(MacTheme.goldMuted)
             }
 
             Spacer()
@@ -546,20 +546,20 @@ struct FamilyRitualTemplate: View {
             } label: {
                 Text(isStarted ? "Active" : "Start")
                     .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(isStarted ? Color(hex: "7A9E7A") : Color(hex: "C9A96E"))
+                    .background(isStarted ? MacTheme.success : MacTheme.goldPrimary)
                     .cornerRadius(6)
             }
             .buttonStyle(.plain)
         }
         .padding(14)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -572,16 +572,16 @@ struct FamilyStreakCard: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "figure.2.and.child.holdinghands")
-                    .foregroundColor(Color(hex: "C9A96E"))
+                    .foregroundColor(MacTheme.goldPrimary)
                 Text("Family Consistency")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
 
                 Spacer()
 
                 Text("We completed \(familyStreak) days in a row")
                     .font(.system(size: 12))
-                    .foregroundColor(Color(hex: "7A9E7A"))
+                    .foregroundColor(MacTheme.success)
             }
 
             // Week dots
@@ -589,26 +589,26 @@ struct FamilyStreakCard: View {
                 ForEach(0..<7, id: \.self) { dayIndex in
                     VStack(spacing: 4) {
                         Circle()
-                            .fill(dayIndex < familyStreak % 7 || familyStreak >= 7 ? Color(hex: "C9A96E") : Color(hex: "1A1714"))
+                            .fill(dayIndex < familyStreak % 7 || familyStreak >= 7 ? MacTheme.goldPrimary : MacTheme.darkSurface)
                             .frame(width: 10, height: 10)
                             .overlay(
                                 Circle()
-                                    .stroke(Color(hex: "8B7355").opacity(0.5), lineWidth: 1)
+                                    .stroke(MacTheme.goldMuted.opacity(0.5), lineWidth: 1)
                             )
 
                         Text(["M", "T", "W", "T", "F", "S", "S"][dayIndex])
                             .font(.system(size: 9))
-                            .foregroundColor(Color(hex: "9C9285"))
+                            .foregroundColor(MacTheme.textSecondary)
                     }
                 }
             }
         }
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -625,10 +625,10 @@ struct TabButton: View {
             VStack(spacing: 8) {
                 Text(title)
                     .font(.system(size: 13, weight: isSelected ? .medium : .regular))
-                    .foregroundColor(isSelected ? Color(hex: "F5F0E8") : Color(hex: "9C9285"))
+                    .foregroundColor(isSelected ? MacTheme.textPrimary : MacTheme.textSecondary)
 
                 Rectangle()
-                    .fill(isSelected ? Color(hex: "C9A96E") : Color.clear)
+                    .fill(isSelected ? MacTheme.goldPrimary : Color.clear)
                     .frame(height: 2)
             }
         }
@@ -650,14 +650,14 @@ struct RitualTypePill: View {
                 Text(type.rawValue)
                     .font(.system(size: 12))
             }
-            .foregroundColor(isSelected ? Color(hex: "0D0B09") : Color(hex: "9C9285"))
+            .foregroundColor(isSelected ? MacTheme.darkBackground : MacTheme.textSecondary)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(isSelected ? Color(hex: "C9A96E") : Color(hex: "1A1714"))
+            .background(isSelected ? MacTheme.goldPrimary : MacTheme.darkSurface)
             .cornerRadius(20)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                    .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
             )
         }
         .buttonStyle(.plain)
@@ -675,23 +675,23 @@ struct InvitePartnerSheet: View {
         VStack(spacing: 24) {
             Text("Invite a Partner")
                 .font(.system(size: 20, weight: .light, design: .serif))
-                .foregroundColor(Color(hex: "F5F0E8"))
+                .foregroundColor(MacTheme.textPrimary)
 
             VStack(alignment: .leading, spacing: 8) {
                 Text("Email Address")
                     .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
 
                 TextField("partner@email.com", text: $email)
                     .textFieldStyle(.plain)
                     .font(.system(size: 15))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
                     .padding(12)
-                    .background(Color(hex: "1A1714"))
+                    .background(MacTheme.darkSurface)
                     .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(hex: "8B7355").opacity(0.5), lineWidth: 1)
+                            .stroke(MacTheme.goldMuted.opacity(0.5), lineWidth: 1)
                     )
             }
 
@@ -700,10 +700,10 @@ struct InvitePartnerSheet: View {
             } label: {
                 Text("Send Invitation")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
             }
             .buttonStyle(.plain)
@@ -713,10 +713,10 @@ struct InvitePartnerSheet: View {
                 dismiss()
             }
             .font(.system(size: 13))
-            .foregroundColor(Color(hex: "9C9285"))
+            .foregroundColor(MacTheme.textSecondary)
         }
         .padding(24)
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.darkBackground)
     }
 }
 
@@ -730,30 +730,30 @@ struct CreateSharedRitualSheet: View {
         VStack(spacing: 24) {
             Text("Create Shared Ritual")
                 .font(.system(size: 20, weight: .light, design: .serif))
-                .foregroundColor(Color(hex: "F5F0E8"))
+                .foregroundColor(MacTheme.textPrimary)
 
             VStack(alignment: .leading, spacing: 8) {
                 Text("Ritual Name")
                     .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
 
                 TextField("Morning mindfulness with Sarah", text: $title)
                     .textFieldStyle(.plain)
                     .font(.system(size: 15))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
                     .padding(12)
-                    .background(Color(hex: "1A1714"))
+                    .background(MacTheme.darkSurface)
                     .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(hex: "8B7355").opacity(0.5), lineWidth: 1)
+                            .stroke(MacTheme.goldMuted.opacity(0.5), lineWidth: 1)
                     )
             }
 
             VStack(alignment: .leading, spacing: 8) {
                 Text("Ritual Type")
                     .font(.system(size: 12, weight: .medium))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
 
                 ForEach(SharedRitualType.allCases.filter { $0 != .familyBreathing }, id: \.self) { type in
                     Button {
@@ -762,7 +762,7 @@ struct CreateSharedRitualSheet: View {
                         HStack {
                             Image(systemName: type.icon)
                                 .font(.system(size: 14))
-                                .foregroundColor(Color(hex: "C9A96E"))
+                                .foregroundColor(MacTheme.goldPrimary)
                                 .frame(width: 24)
 
                             VStack(alignment: .leading, spacing: 2) {
@@ -770,23 +770,23 @@ struct CreateSharedRitualSheet: View {
                                     .font(.system(size: 13, weight: .medium))
                                 Text(type.description)
                                     .font(.system(size: 11))
-                                    .foregroundColor(Color(hex: "9C9285"))
+                                    .foregroundColor(MacTheme.textSecondary)
                             }
 
                             Spacer()
 
                             if selectedType == type {
                                 Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(Color(hex: "C9A96E"))
+                                    .foregroundColor(MacTheme.goldPrimary)
                             }
                         }
-                        .foregroundColor(Color(hex: "F5F0E8"))
+                        .foregroundColor(MacTheme.textPrimary)
                         .padding(12)
-                        .background(Color(hex: "1A1714"))
+                        .background(MacTheme.darkSurface)
                         .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(selectedType == type ? Color(hex: "C9A96E").opacity(0.5) : Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                                .stroke(selectedType == type ? MacTheme.goldPrimary.opacity(0.5) : MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
                         )
                     }
                     .buttonStyle(.plain)
@@ -798,10 +798,10 @@ struct CreateSharedRitualSheet: View {
             } label: {
                 Text("Create Ritual")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "0D0B09"))
+                    .foregroundColor(MacTheme.darkBackground)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
-                    .background(Color(hex: "C9A96E"))
+                    .background(MacTheme.goldPrimary)
                     .cornerRadius(8)
             }
             .buttonStyle(.plain)
@@ -811,10 +811,10 @@ struct CreateSharedRitualSheet: View {
                 dismiss()
             }
             .font(.system(size: 13))
-            .foregroundColor(Color(hex: "9C9285"))
+            .foregroundColor(MacTheme.textSecondary)
         }
         .padding(24)
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.darkBackground)
     }
 }
 

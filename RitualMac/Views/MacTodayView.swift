@@ -24,7 +24,7 @@ struct MacTodayView: View {
             }
             .padding(24)
         }
-        .background(Color(hex: "0D0B09"))
+        .background(MacTheme.darkBackground)
         .onAppear {
             loadData()
         }
@@ -47,7 +47,7 @@ struct MacTodayView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Today's Intention")
                 .font(.system(size: 14, weight: .medium))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
                 .textCase(.uppercase)
                 .tracking(1)
 
@@ -55,22 +55,22 @@ struct MacTodayView: View {
                 VStack(spacing: 12) {
                     Text("What will you focus on today?")
                         .font(.system(size: 20, weight: .light, design: .serif))
-                        .foregroundColor(Color(hex: "F5F0E8"))
+                        .foregroundColor(MacTheme.textPrimary)
                         .multilineTextAlignment(.center)
 
                     Text("Set an intention to shape your day with purpose.")
                         .font(.system(size: 14))
-                        .foregroundColor(Color(hex: "9C9285"))
+                        .foregroundColor(MacTheme.textSecondary)
                         .multilineTextAlignment(.center)
 
                     Text("Open the iOS app to set your intention")
                         .font(.system(size: 12))
-                        .foregroundColor(Color(hex: "C9A96E"))
+                        .foregroundColor(MacTheme.goldPrimary)
                         .padding(.top, 4)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(32)
-                .background(Color(hex: "1A1714"))
+                .background(MacTheme.darkSurface)
                 .cornerRadius(16)
             } else {
                 VStack(spacing: 12) {
@@ -90,7 +90,7 @@ struct MacTodayView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Breathing")
                 .font(.system(size: 14, weight: .medium))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
                 .textCase(.uppercase)
                 .tracking(1)
 
@@ -102,17 +102,17 @@ struct MacTodayView: View {
                         VStack(spacing: 4) {
                             Image(systemName: "wind")
                                 .font(.system(size: 20))
-                                .foregroundColor(Color(hex: "C9A96E"))
+                                .foregroundColor(MacTheme.goldPrimary)
                             Text(pattern.rawValue)
                                 .font(.system(size: 12, weight: .medium))
-                                .foregroundColor(Color(hex: "F5F0E8"))
+                                .foregroundColor(MacTheme.textPrimary)
                             Text(pattern.description)
                                 .font(.system(size: 10))
-                                .foregroundColor(Color(hex: "9C9285"))
+                                .foregroundColor(MacTheme.textSecondary)
                         }
                         .frame(maxWidth: .infinity)
                         .padding(16)
-                        .background(Color(hex: "1A1714"))
+                        .background(MacTheme.darkSurface)
                         .cornerRadius(12)
                     }
                     .buttonStyle(.plain)
@@ -132,20 +132,20 @@ struct StreakCardMac: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Current Streak")
                     .font(.system(size: 12))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     Text("\(streak.currentStreak)")
                         .font(.system(size: 36, weight: .light, design: .serif))
-                        .foregroundColor(Color(hex: "F5F0E8"))
+                        .foregroundColor(MacTheme.textPrimary)
                     Text("days")
                         .font(.system(size: 14))
-                        .foregroundColor(Color(hex: "9C9285"))
+                        .foregroundColor(MacTheme.textSecondary)
                 }
 
                 Text(streakStatus)
                     .font(.system(size: 12))
-                    .foregroundColor(Color(hex: "C9A96E"))
+                    .foregroundColor(MacTheme.goldPrimary)
             }
 
             Spacer()
@@ -155,21 +155,21 @@ struct StreakCardMac: View {
                 ForEach(0..<7, id: \.self) { dayIndex in
                     let isActive = dayIndex < streak.currentStreak % 7 || streak.currentStreak >= 7
                     Circle()
-                        .fill(isActive ? Color(hex: "C9A96E") : Color(hex: "1A1714"))
+                        .fill(isActive ? MacTheme.goldPrimary : MacTheme.darkSurface)
                         .frame(width: 8, height: 8)
                         .overlay(
                             Circle()
-                                .stroke(Color(hex: "8B7355").opacity(isActive ? 0 : 0.5), lineWidth: 1)
+                                .stroke(MacTheme.goldMuted.opacity(isActive ? 0 : 0.5), lineWidth: 1)
                         )
                 }
             }
         }
         .padding(20)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(16)
         .overlay(
             RoundedRectangle(cornerRadius: 16)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 
@@ -196,18 +196,18 @@ struct MacStatCard: View {
         VStack(spacing: 4) {
             Text(value)
                 .font(.system(size: 28, weight: .light, design: .serif))
-                .foregroundColor(Color(hex: "F5F0E8"))
+                .foregroundColor(MacTheme.textPrimary)
             Text(title)
                 .font(.system(size: 12))
-                .foregroundColor(Color(hex: "9C9285"))
+                .foregroundColor(MacTheme.textSecondary)
         }
         .frame(maxWidth: .infinity)
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }
@@ -225,30 +225,30 @@ struct MacIntentionRow: View {
             } label: {
                 Image(systemName: isCheckedIn ? "checkmark.circle.fill" : "circle")
                     .font(.system(size: 22))
-                    .foregroundColor(isCheckedIn ? Color(hex: "7A9E7A") : Color(hex: "8B7355"))
+                    .foregroundColor(isCheckedIn ? MacTheme.success : MacTheme.goldMuted)
             }
             .buttonStyle(.plain)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(intention.text)
                     .font(.system(size: 15, design: .serif))
-                    .foregroundColor(Color(hex: "F5F0E8"))
+                    .foregroundColor(MacTheme.textPrimary)
                     .strikethrough(isCheckedIn)
-                    .foregroundColor(isCheckedIn ? Color(hex: "9C9285") : Color(hex: "F5F0E8"))
+                    .foregroundColor(isCheckedIn ? MacTheme.textSecondary : MacTheme.textPrimary)
 
                 Text(intention.category ?? "General")
                     .font(.system(size: 11))
-                    .foregroundColor(Color(hex: "9C9285"))
+                    .foregroundColor(MacTheme.textSecondary)
             }
 
             Spacer()
         }
         .padding(16)
-        .background(Color(hex: "1A1714"))
+        .background(MacTheme.darkSurface)
         .cornerRadius(12)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color(hex: "8B7355").opacity(0.3), lineWidth: 1)
+                .stroke(MacTheme.goldMuted.opacity(0.3), lineWidth: 1)
         )
     }
 }

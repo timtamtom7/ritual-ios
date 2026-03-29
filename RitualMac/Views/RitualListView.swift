@@ -103,7 +103,7 @@ struct RitualRowView: View {
                     if isCompleted {
                         Image(systemName: "checkmark")
                             .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundColor(MacTheme.textPrimary)
                     }
                 }
             }

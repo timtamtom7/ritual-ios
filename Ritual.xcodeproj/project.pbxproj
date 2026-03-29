@@ -36,6 +36,7 @@
 		23D4BE1CD4EB273309E6FC14 /* CheckInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDDD9B1F3A1CC355D2FC12 /* CheckInButton.swift */; };
 		28D33DF055F0BCFFE2D5D00A /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D726E8F1E88FE202C36C8 /* MenuBarView.swift */; };
 		298CD5037B5D559564FD81E8 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD009BDA2A808380697A11AF /* InsightsViewModel.swift */; };
+		2D5D70EFCF92BB25F800EF0D /* LAUNCH_CHECKLIST.md in Resources */ = {isa = PBXBuildFile; fileRef = 70B73E59F063A2FA2A482AB1 /* LAUNCH_CHECKLIST.md */; };
 		30681A721E651DCB0D645B5E /* TeacherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50983E00775D3AEBE3F0C30B /* TeacherService.swift */; };
 		31BDB43136469401A9CFABA8 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C0093303C8D21F17F8A680 /* HealthKitService.swift */; };
 		3A4A2C3F1FC14C0969B4F3DA /* SeasonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC0CE81A323E28A087C7656 /* SeasonService.swift */; };
@@ -96,6 +97,7 @@
 		ECE9BB36F2EB945845A37A9C /* GroupRitual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C880E0E2EE201DCD996DFE /* GroupRitual.swift */; };
 		ED695AC0E199F2FF419B85AE /* IntentionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */; };
 		F72C74062847EA8C56DEDC47 /* DailyFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC42736540D49BA93AF747 /* DailyFlowView.swift */; };
+		F9D4036B3FC1B04F605722AC /* APPSTORE.md in Resources */ = {isa = PBXBuildFile; fileRef = 59F710E87ED04D25FB2386BC /* APPSTORE.md */; };
 		FB9B60F375C58917060B637C /* GroupRitual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C880E0E2EE201DCD996DFE /* GroupRitual.swift */; };
 		FF335B127E90CCAB01006627 /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C47942E3C05DEF6C70DC03 /* BreathingSession.swift */; };
 		FFD411B420FAD8A1A40E3997 /* RitualR11Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D55D7979B63E99C95BB06 /* RitualR11Service.swift */; };
@@ -129,11 +131,13 @@
 		46CD27354174927C9E078DCB /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultipeerConnectivity.framework; sourceTree = "<group>"; };
 		4EBC42736540D49BA93AF747 /* DailyFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFlowView.swift; sourceTree = "<group>"; };
 		50983E00775D3AEBE3F0C30B /* TeacherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherService.swift; sourceTree = "<group>"; };
+		59F710E87ED04D25FB2386BC /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		5DB1EF7A93362D84D35EEFA6 /* RitualWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RitualWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		654A3763EDD634EBCC0B09E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66524903C0F49BDD5ED47760 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		69BF255CD4A94D011E7CE342 /* BreathingGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuideView.swift; sourceTree = "<group>"; };
 		6F9F57D703401E3730F71E34 /* CommunityTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTemplatesView.swift; sourceTree = "<group>"; };
+		70B73E59F063A2FA2A482AB1 /* LAUNCH_CHECKLIST.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LAUNCH_CHECKLIST.md; sourceTree = "<group>"; };
 		71838B6D69C04E74E5BC26CD /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		7B03F34B4D3D53ACDC197CBA /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		7CE2E02D0F84B43AD8823E17 /* IntentionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCard.swift; sourceTree = "<group>"; };
@@ -223,6 +227,14 @@
 				EB0103EF0F30555D6788BCA5 /* TodayView.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		1011DC39E7E0F1D7893BBB4B /* Marketing */ = {
+			isa = PBXGroup;
+			children = (
+				59F710E87ED04D25FB2386BC /* APPSTORE.md */,
+			);
+			path = Marketing;
 			sourceTree = "<group>";
 		};
 		13BD2A757343ADF025279C84 /* App */ = {
@@ -441,7 +453,9 @@
 			isa = PBXGroup;
 			children = (
 				2ECB82A694B0F56A10511F7D /* Info.plist */,
+				70B73E59F063A2FA2A482AB1 /* LAUNCH_CHECKLIST.md */,
 				89881A1985F4A926626BF08A /* App */,
+				1011DC39E7E0F1D7893BBB4B /* Marketing */,
 				BF818B0EFA81EB3D3D3153D6 /* Services */,
 				5E76374321F649F5C37749B8 /* Sources */,
 				C6DD2A2FC12090693E1A8E26 /* Theme */,
@@ -556,6 +570,7 @@
 			buildConfigurationList = 50A9A9AE2B1C55D9E03B830E /* Build configuration list for PBXNativeTarget "RitualMac" */;
 			buildPhases = (
 				3A8C7D83C9E593FD0DDA5F7F /* Sources */,
+				120D6D3D341BCAE30BAF6681 /* Resources */,
 				15953515967D0C153D75340B /* Frameworks */,
 			);
 			buildRules = (
@@ -648,6 +663,15 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		120D6D3D341BCAE30BAF6681 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D4036B3FC1B04F605722AC /* APPSTORE.md in Resources */,
+				2D5D70EFCF92BB25F800EF0D /* LAUNCH_CHECKLIST.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2038DCEB9ED58BDCE305F3A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
