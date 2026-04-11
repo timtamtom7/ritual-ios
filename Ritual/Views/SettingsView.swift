@@ -108,7 +108,7 @@ struct SettingsView: View {
                         showPaywall = true
                     } label: {
                         Label("Become a Teacher", systemImage: "person.wave.2")
-                            .font(.system(size: 15))
+                            .font(.system(size: 15, weight: .medium))
                             .foregroundColor(Theme.goldPrimary)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, Theme.spacingS)
@@ -216,7 +216,7 @@ struct SettingsView: View {
                     .background(Theme.goldMuted.opacity(0.2))
 
                 Button {
-                    // Rate app
+                    // Rate app - placeholder, would open App Store review
                 } label: {
                     HStack {
                         Text("Rate Ritual")
@@ -228,6 +228,7 @@ struct SettingsView: View {
                     }
                     .padding(Theme.spacingM)
                 }
+                .accessibilityLabel("Rate Ritual - Opens App Store to leave a review")
 
                 Divider()
                     .background(Theme.goldMuted.opacity(0.2))
@@ -324,10 +325,10 @@ struct SettingsView: View {
 // MARK: - Notification Settings
 
 struct NotificationSettingsView: View {
-    @State private var morningReminder = true
-    @State private var eveningReminder = false
-    @State private var streakReminder = true
-    @State private var groupReminder = true
+    @AppStorage("notification_morning") private var morningReminder = true
+    @AppStorage("notification_evening") private var eveningReminder = false
+    @AppStorage("notification_streak") private var streakReminder = true
+    @AppStorage("notification_group") private var groupReminder = true
 
     var body: some View {
         ScrollView {

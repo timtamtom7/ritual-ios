@@ -300,6 +300,7 @@ extension View {
 
 struct ShimmerModifier: ViewModifier {
     @State private var phase: CGFloat = 0
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func body(content: Content) -> some View {
         content
@@ -316,11 +317,15 @@ struct ShimmerModifier: ViewModifier {
                     )
                     .frame(width: geometry.size.width * 2)
                     .offset(x: -geometry.size.width + phase * geometry.size.width * 2)
-                    .animation(.linear(duration: 1.5).repeatForever(autoreverses: false), value: phase)
+                    .animation(reduceMotion ? .none : .linear(duration: 1.5).repeatForever(autoreverses: false), value: phase)
                 }
             )
             .mask(content)
-            .onAppear { phase = 1 }
+            .onAppear {
+                if !reduceMotion {
+                    phase = 1
+                }
+            }
     }
 }
 

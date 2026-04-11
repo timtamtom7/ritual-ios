@@ -48,7 +48,7 @@ struct EveningCheckInView: View {
                     }
                 }
 
-                CheckInButton(title: "Not Quite", isSelected: selectedAnswer == false) {
+                CheckInButton(title: "No", isSelected: selectedAnswer == false) {
                     selectedAnswer = false
                     withAnimation {
                         showReflection = true

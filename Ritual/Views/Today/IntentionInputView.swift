@@ -30,7 +30,7 @@ struct IntentionInputView: View {
                         RoundedRectangle(cornerRadius: Theme.cardRadius)
                             .stroke(Theme.goldMuted.opacity(0.3), lineWidth: 1)
                     )
-                    .onChange(of: text) { _, newValue in
+                    .onChange(of: text) { oldValue, newValue in
                         if newValue.count > maxCharacters {
                             text = String(newValue.prefix(maxCharacters))
                         }
@@ -75,7 +75,7 @@ struct IntentionInputView: View {
             }
 
             PrimaryButton(
-                title: "Hold This Intention",
+                title: "Set Intention",
                 action: onSubmit,
                 isEnabled: !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             )
@@ -101,10 +101,20 @@ struct IntentionInputView: View {
     }
 
     private func toggleVoiceInput() {
-        isRecording.toggle()
-        if isRecording {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                isRecording = false
+        // Request microphone permission first
+        AVAudioApplication.requestRecordPermission { [self] granted in
+            DispatchQueue.main.async {
+                if granted {
+                    isRecording.toggle()
+                    if isRecording {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isRecording = false
+                        }
+                    }
+                } else {
+                    isRecording = false
+                    showPermissionDeniedAlert(for: .denied)
+                }
             }
         }
     }

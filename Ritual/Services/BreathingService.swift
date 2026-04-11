@@ -34,9 +34,7 @@ final class BreathingService: ObservableObject {
             engine = try CHHapticEngine()
             engine?.playsHapticsOnly = true
             engine?.stoppedHandler = { [weak self] reason in
-                DispatchQueue.main.async {
-                    self?.isRunning = false
-                }
+                self?.isRunning = false
             }
             engine?.resetHandler = { [weak self] in
                 try? self?.engine?.start()

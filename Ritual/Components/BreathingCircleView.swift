@@ -5,6 +5,7 @@ struct BreathingCircleView: View {
     @State private var scale: CGFloat = 0.6
     @State private var glowOpacity: Double = 0.3
     @State private var innerGlow: Double = 0.2
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         ZStack {
@@ -93,9 +94,14 @@ struct BreathingCircleView: View {
                         .transition(.opacity)
                 }
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(accessibilityLabel)
+            .accessibilityHint(accessibilityHint)
         }
         .onChange(of: phase) { _, newPhase in
-            animateForPhase(newPhase)
+            if !reduceMotion {
+                animateForPhase(newPhase)
+            }
         }
         .onAppear {
             if phase == .idle {
@@ -111,6 +117,26 @@ struct BreathingCircleView: View {
         case .inhale: return "Let your chest expand"
         case .holdIn, .holdOut: return "Feel the stillness"
         case .exhale: return "Release gently"
+        default: return ""
+        }
+    }
+
+    private var accessibilityLabel: String {
+        switch phase {
+        case .inhale: return "Breathe in"
+        case .holdIn: return "Hold breath in"
+        case .exhale: return "Breathe out"
+        case .holdOut: return "Hold breath out"
+        case .paused: return "Breathing paused"
+        case .idle: return "Breathing idle"
+        }
+    }
+
+    private var accessibilityHint: String {
+        switch phase {
+        case .inhale: return "Expand your chest slowly"
+        case .holdIn, .holdOut: return "Hold the stillness"
+        case .exhale: return "Release the breath gently"
         default: return ""
         }
     }
